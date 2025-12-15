@@ -1,0 +1,21 @@
+{
+  "name": "@snaptask/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node --esm src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@fastify/oauth2": "^8.1.2",
+    "fastify": "^5.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

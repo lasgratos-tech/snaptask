@@ -1,0 +1,11 @@
+{
+  "name": "snaptask",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "scripts": {
+    "dev:web": "pnpm --filter @snaptask/web dev"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
