@@ -1,26 +1,22 @@
-node_modules
-# Keep environment variables out of version control
-.env
-
-/src/generated/prisma
-
 # macOS
 .DS_Store
+
+# Environment variables
+.env
 
 # Node
 node_modules/
 **/node_modules/
 
-# Build
+# Build outputs
 dist/
 build/
 
 # Vite / cache
 .vite/
-.vite/**
-
-# Prisma generated
-**/prisma/migrations/
 
 # Logs
 *.log
+
+# Prisma generated (on garde le schema, on ignore les migrations générées)
+prisma/migrations/
