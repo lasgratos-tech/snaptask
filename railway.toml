@@ -1,0 +1,6 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd apps/api && pnpm install && pnpm run build"
+
+[deploy]
+startCommand = "cd apps/api && pnpm run start"
