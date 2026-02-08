@@ -7,6 +7,6 @@ export const registerV5: FastifyPluginCallback = (app, _opts, done) => {
     return { status: 'ok', version: 'v5' };
   });
 
-  registerTasksRoutes(app);
+  app.register(registerTasksRoutes);
   done();
 };

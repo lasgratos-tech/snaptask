@@ -1,8 +1,8 @@
-import type { FastifyInstance } from 'fastify';
+import type { FastifyPluginCallback } from 'fastify';
 
 import { TaskListSchema } from './schema.js';
 
-export function registerTasksRoutes(app: FastifyInstance) {
+export const registerTasksRoutes: FastifyPluginCallback = (app, _opts, done) => {
   app.get('/tasks', async () => {
     const tasks = [
       { id: 't1', title: 'Premiere tache', status: 'todo' },
@@ -13,4 +13,5 @@ export function registerTasksRoutes(app: FastifyInstance) {
     TaskListSchema.parse(tasks);
     return tasks;
   });
-}
+  done();
+};
