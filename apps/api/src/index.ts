@@ -2,6 +2,7 @@ import Fastify from 'fastify';
 
 import { registerCommandRoutes } from './http/commandRoute.js';
 import { exportPrometheusMetrics } from './observability/metrics.js';
+import { registerV5 } from './v5/index.js';
 
 const app = Fastify({ logger: true });
 
@@ -18,6 +19,13 @@ app.get('/metrics', async (_, reply) => {
 
 // Commands
 await registerCommandRoutes(app);
+
+const isV5Enabled = process.env.SNAPTASK_V5_ENABLED === 'true';
+if (isV5Enabled) {
+  registerV5(app);
+} else {
+  console.log('[API] V5 disabled');
+}
 
 const port = Number(process.env.PORT ?? 3001);
 
