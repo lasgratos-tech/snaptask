@@ -1,12 +1,17 @@
 import type { FastifyPluginCallback } from 'fastify';
 
-import tasksPlugin from './tasks/index.js';
+import { isV5Enabled } from './config/flags.js';
+import healthPlugin from './health/plugin.js';
+import tasksPlugin from './tasks/plugin.js';
 
 export const registerV5: FastifyPluginCallback = (app, _opts, done) => {
-  app.get('/health', async () => {
-    return { status: 'ok', version: 'v5' };
-  });
+  if (!isV5Enabled()) {
+    app.log.info('[V5] disabled');
+    done();
+    return;
+  }
 
+  app.register(healthPlugin);
   app.register(tasksPlugin);
   done();
 };
