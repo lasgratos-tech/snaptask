@@ -9,9 +9,15 @@ export const getTaskById = (id: string): TaskV5 | null =>
   getStoredTaskById(id);
 
 export const createTask = (input: CreateTaskInput): TaskV5 => {
+  if (typeof input.title !== 'string') {
+    throw new Error('TITLE_REQUIRED');
+  }
   const title = input.title.trim();
   if (!title) {
-    throw new Error('INVALID_TITLE');
+    throw new Error('TITLE_REQUIRED');
+  }
+  if (title.length > 200) {
+    throw new Error('TITLE_TOO_LONG');
   }
   const task = taskRepository.create({ title });
   task.id = randomUUID();

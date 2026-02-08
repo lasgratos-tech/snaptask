@@ -16,6 +16,12 @@ Données volatiles et réversibles au redémarrage.
 - Ajouter des champs uniquement si validé par contrat.
 - Garder un modèle simple et strict.
 
+## Invariant write model
+- `id` est généré côté serveur uniquement.
+- `status` est contrôlé côté serveur uniquement.
+- Le client ne fournit jamais `status` ni `id`.
+- La validation de `title` reste stricte et déterministe.
+
 ## Interdit
 - DB réelle ou cache externe.
 - Auth ou logique métier avancée.
