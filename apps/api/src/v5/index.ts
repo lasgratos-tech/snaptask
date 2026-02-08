@@ -1,11 +1,16 @@
-import type { FastifyInstance } from 'fastify';
+import type { FastifyInstance, FastifyPluginCallback } from 'fastify';
 
 import { registerTasksRoutes } from './tasks/index.js';
 
-export function registerV5(app: FastifyInstance) {
-  app.get('/v5/health', async () => {
+const v5Plugin: FastifyPluginCallback = (app, _opts, done) => {
+  app.get('/health', async () => {
     return { status: 'ok', version: 'v5' };
   });
 
   registerTasksRoutes(app);
+  done();
+};
+
+export function registerV5(app: FastifyInstance) {
+  app.register(v5Plugin, { prefix: '/v5' });
 }
