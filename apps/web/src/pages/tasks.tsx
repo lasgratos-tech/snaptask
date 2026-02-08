@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 import { createTask, getTasks, type TaskV5 } from "../api/v5";
+import { TaskForm } from "../components/TaskForm";
+import { TaskList } from "../components/TaskList";
 
 export const TasksPage = () => {
   const [tasks, setTasks] = useState<TaskV5[]>([]);
-  const [title, setTitle] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,48 +26,23 @@ export const TasksPage = () => {
     void loadTasks();
   }, []);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!title.trim()) {
-      return;
-    }
-    setIsLoading(true);
+  const handleCreate = async (title: string) => {
     setError(null);
-    try {
-      await createTask(title.trim());
-      setTitle("");
-      await loadTasks();
-    } catch (err) {
-      setError((err as Error).message);
-    } finally {
-      setIsLoading(false);
-    }
+    await createTask(title);
+    await loadTasks();
   };
 
   return (
     <main>
       <h1>Tasks V5</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title
-          <input
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          />
-        </label>
-        <button type="submit" disabled={isLoading}>
-          Create
-        </button>
-      </form>
-      {error ? <p>Error: {error}</p> : null}
-      {isLoading ? <p>Loading...</p> : null}
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>
-            {task.title} — {task.status}
-          </li>
-        ))}
-      </ul>
+      <section>
+        <TaskForm onCreate={handleCreate} />
+      </section>
+      <section>
+        {isLoading ? <p>Chargement en cours...</p> : null}
+        {error ? <p>Erreur: {error}</p> : null}
+        {!isLoading && !error ? <TaskList tasks={tasks} /> : null}
+      </section>
     </main>
   );
 };
