@@ -22,7 +22,17 @@ Données volatiles et réversibles au redémarrage.
 - Le client ne fournit jamais `status` ni `id`.
 - La validation de `title` reste stricte et déterministe.
 
+## Auth & Ownership
+- Auth minimale par header `x-user-id`.
+- Toutes les lectures/écritures sont filtrées par `ownerId`.
+- Un client ne voit jamais les tasks d’un autre user.
+
+## Write Model Invariants
+- `ownerId` est contrôlé côté serveur uniquement.
+- Le client ne fournit jamais `ownerId`.
+- L’ownership reste obligatoire même avec DB réelle.
+
 ## Interdit
-- DB réelle ou cache externe.
+- Accès DB direct hors repository.
 - Auth ou logique métier avancée.
 - Importer V4.

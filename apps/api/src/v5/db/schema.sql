@@ -3,3 +3,6 @@ CREATE TABLE IF NOT EXISTS tasks_v5 (
   title TEXT NOT NULL,
   status TEXT NOT NULL
 );
+
+ALTER TABLE tasks_v5
+ADD COLUMN owner_id TEXT NOT NULL;
