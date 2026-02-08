@@ -22,7 +22,7 @@ await registerCommandRoutes(app);
 
 const isV5Enabled = process.env.SNAPTASK_V5_ENABLED === 'true';
 if (isV5Enabled) {
-  registerV5(app);
+  app.register(registerV5, { prefix: '/v5' });
 } else {
   console.log('[API] V5 disabled');
 }
