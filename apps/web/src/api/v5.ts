@@ -1,4 +1,5 @@
-import { V5_API_URL, V5_USER_ID } from "../env";
+import { getUserId } from "../auth/auth";
+import { V5_API_URL } from "../env";
 
 export type TaskV5 = {
   id: string;
@@ -9,9 +10,15 @@ export type TaskV5 = {
 
 const baseUrl = V5_API_URL.replace(/\/$/, "");
 
-const withAuthHeaders = () => ({
-  "x-user-id": V5_USER_ID,
-});
+const withAuthHeaders = () => {
+  const userId = getUserId();
+  if (!userId) {
+    throw new Error("User ID manquant.");
+  }
+  return {
+    "x-user-id": userId,
+  };
+};
 
 export const getTasks = async (): Promise<TaskV5[]> => {
   try {
