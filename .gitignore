@@ -1,0 +1,13 @@
+node_modules/
+**/node_modules/
+
+dist/
+build/
+.vite/
+**/.vite/
+
+.cache/
+.pnpm-store/
+
+.env
+.env.*
