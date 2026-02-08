@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
+import { emit } from '../events/emitter.js';
 import type { CreateTaskInput, TaskV5 } from './types.js';
 import { taskRepository } from './repository.js';
 
@@ -29,5 +30,12 @@ export const createTask = async (
     status: 'todo',
     ownerId
   };
-  return taskRepository.create(task, ownerId);
+  const created = await taskRepository.create(task, ownerId);
+  emit({
+    type: 'task.created',
+    taskId: created.id,
+    ownerId: created.ownerId,
+    occurredAt: new Date().toISOString()
+  });
+  return created;
 };

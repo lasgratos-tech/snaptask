@@ -22,6 +22,11 @@ Elle est montée sous `/v5` et désactivée par défaut.
 - Auto-discovery de plugins.
 - Ajouter des dépendances runtime cachées.
 - Coupler V5 à V4.
+
+## Eventing interne
+L’eventing V5 est synchrone, in-process et non bloquant.
+Aucune intégration externe (Kafka, RabbitMQ, webhooks).
+Aucun retry et aucun event store.
 # V5 (preparation)
 
 - V5 en preparation.
