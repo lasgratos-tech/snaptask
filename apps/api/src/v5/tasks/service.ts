@@ -1,14 +1,15 @@
 import { randomUUID } from 'node:crypto';
 
 import type { CreateTaskInput, TaskV5 } from './types.js';
-import { getStoredTaskById, getStoredTasks, taskRepository } from './repository.js';
+import { taskRepository } from './repository.js';
 
-export const getAllTasks = (): TaskV5[] => getStoredTasks();
+export const getAllTasks = async (): Promise<TaskV5[]> =>
+  taskRepository.findAll();
 
-export const getTaskById = (id: string): TaskV5 | null =>
-  getStoredTaskById(id);
+export const getTaskById = async (id: string): Promise<TaskV5 | null> =>
+  taskRepository.findById(id);
 
-export const createTask = (input: CreateTaskInput): TaskV5 => {
+export const createTask = async (input: CreateTaskInput): Promise<TaskV5> => {
   if (typeof input.title !== 'string') {
     throw new Error('TITLE_REQUIRED');
   }
@@ -19,8 +20,10 @@ export const createTask = (input: CreateTaskInput): TaskV5 => {
   if (title.length > 200) {
     throw new Error('TITLE_TOO_LONG');
   }
-  const task = taskRepository.create({ title });
-  task.id = randomUUID();
-  task.status = 'todo';
-  return task;
+  const task: TaskV5 = {
+    id: randomUUID(),
+    title,
+    status: 'todo'
+  };
+  return taskRepository.create(task);
 };

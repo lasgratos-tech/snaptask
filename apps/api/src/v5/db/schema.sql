@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS tasks_v5 (
+  id TEXT PRIMARY KEY,
+  title TEXT NOT NULL,
+  status TEXT NOT NULL
+);

@@ -10,7 +10,7 @@ export const registerTasksRoutes = (app: FastifyInstance) => {
 
   app.post<{ Body: CreateTaskInput }>('/', async (request, reply) => {
     try {
-      const task = createTask(request.body);
+      const task = await createTask(request.body);
       app.log.info({ taskId: task.id }, '[V5][tasks] created');
       return reply.code(201).send(task);
     } catch (error) {
@@ -26,7 +26,7 @@ export const registerTasksRoutes = (app: FastifyInstance) => {
   });
 
   app.get<{ Params: { id: string } }>('/:id', async (request, reply) => {
-    const task = getTaskById(request.params.id);
+    const task = await getTaskById(request.params.id);
     if (!task) {
       return reply.code(404).send();
     }
