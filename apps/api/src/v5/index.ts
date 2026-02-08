@@ -12,6 +12,6 @@ export const registerV5: FastifyPluginCallback = (app, _opts, done) => {
   }
 
   app.register(healthPlugin);
-  app.register(tasksPlugin);
+  app.register(tasksPlugin, { prefix: '/tasks' });
   done();
 };
