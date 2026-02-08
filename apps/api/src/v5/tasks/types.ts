@@ -1,5 +1,11 @@
-export type TaskV5 = {
+export type TaskStatus = 'todo' | 'done';
+
+export interface TaskV5 {
   id: string;
   title: string;
-  status: 'todo' | 'done';
-};
+  status: TaskStatus;
+}
+
+export interface CreateTaskInput {
+  title: string;
+}

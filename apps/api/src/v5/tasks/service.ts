@@ -1,12 +1,20 @@
-import type { TaskV5 } from './types.js';
+import { randomUUID } from 'node:crypto';
 
-const tasks: TaskV5[] = [
-  { id: 't1', title: 'Premiere tache', status: 'todo' },
-  { id: 't2', title: 'Deuxieme tache', status: 'done' },
-  { id: 't3', title: 'Troisieme tache', status: 'todo' }
-];
+import type { CreateTaskInput, TaskV5 } from './types.js';
+import { getStoredTaskById, getStoredTasks, taskRepository } from './repository.js';
 
-export const getAllTasks = (): TaskV5[] => tasks;
+export const getAllTasks = (): TaskV5[] => getStoredTasks();
 
 export const getTaskById = (id: string): TaskV5 | null =>
-  tasks.find(task => task.id === id) ?? null;
+  getStoredTaskById(id);
+
+export const createTask = (input: CreateTaskInput): TaskV5 => {
+  const title = input.title.trim();
+  if (!title) {
+    throw new Error('INVALID_TITLE');
+  }
+  const task = taskRepository.create({ title });
+  task.id = randomUUID();
+  task.status = 'todo';
+  return task;
+};
