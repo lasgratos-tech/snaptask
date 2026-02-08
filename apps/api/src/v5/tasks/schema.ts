@@ -1,9 +1,13 @@
-import { z } from 'zod';
+export type Task = {
+  id: string;
+  title: string;
+  status: 'todo' | 'done';
+};
 
-export const TaskSchema = z.object({
-  id: z.string(),
-  title: z.string(),
-  status: z.enum(['todo', 'done'])
-});
+export const TaskSchema = {
+  parse: (value: unknown): Task => value as Task
+};
 
-export const TaskListSchema = z.array(TaskSchema);
+export const TaskListSchema = {
+  parse: (value: unknown): Task[] => value as Task[]
+};
