@@ -12,18 +12,8 @@ export const registerV5: FastifyPluginCallback = (app, _opts, done) => {
     return;
   }
 
-  app.register(async (v5App) => {
-    v5App.addHook('preHandler', async (request, reply) => {
-      const userId = request.headers['x-user-id'];
-      if (typeof userId !== 'string' || !userId.trim()) {
-        reply.code(401).send({ error: 'unauthorized' });
-        return;
-      }
-    });
-
-    v5App.register(healthPlugin);
-    registerMetricsRoutes(v5App);
-    v5App.register(tasksPlugin, { prefix: '/tasks' });
-  });
+  app.register(healthPlugin);
+  registerMetricsRoutes(app);
+  app.register(tasksPlugin, { prefix: '/tasks' });
   done();
 };
