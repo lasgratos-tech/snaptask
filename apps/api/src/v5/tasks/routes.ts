@@ -15,11 +15,15 @@ import { createTask, getAllTasks, getTaskById } from './service.js';
 
 export const registerTasksRoutes = (app: FastifyInstance) => {
   app.get('/', async (request, reply) => {
-    const user = requireUser(request, reply);
-    if (!user) {
-      return;
+    const userId =
+      request.user?.id ??
+      (typeof request.headers["x-user-id"] === "string"
+        ? request.headers["x-user-id"].trim()
+        : "");
+    if (!userId) {
+      return reply.code(401).send({ error: "unauthorized" });
     }
-    return getAllTasks(user.id);
+    return getAllTasks(userId);
   });
 
   app.post<{ Body: CreateTaskInput }>('/', async (request, reply) => {
