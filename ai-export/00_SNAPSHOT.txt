@@ -1,0 +1,297 @@
+### TREE
+.
+├── .DS_Store
+├── .gitignore
+├── ai-export
+│   └── 00_SNAPSHOT.txt
+├── apps
+│   ├── api
+│   │   ├── .env
+│   │   ├── package.json
+│   │   ├── prisma
+│   │   │   ├── migrations
+│   │   │   │   ├── 20251216115952_init
+│   │   │   │   │   └── migration.sql
+│   │   │   │   ├── 20251216142632_fix_relations_and_revoked_at
+│   │   │   │   │   └── migration.sql
+│   │   │   │   ├── 20260101184853_pnpm_dev
+│   │   │   │   │   └── migration.sql
+│   │   │   │   └── migration_lock.toml
+│   │   │   └── schema.prisma
+│   │   ├── src
+│   │   │   ├── auth
+│   │   │   │   ├── actorContext.ts
+│   │   │   │   ├── apiKey.admin.routes.ts
+│   │   │   │   ├── apiKey.generator.ts
+│   │   │   │   ├── apiKey.guard.ts
+│   │   │   │   ├── apiKey.middleware.ts
+│   │   │   │   ├── apiKey.service.ts
+│   │   │   │   ├── apiKey.store.ts
+│   │   │   │   ├── billing
+│   │   │   │   ├── googleOAuth.ts
+│   │   │   │   └── oauthCallback.ts
+│   │   │   ├── auth.zip
+│   │   │   ├── billing
+│   │   │   │   ├── billing.routes.ts
+│   │   │   │   ├── billing.service.ts
+│   │   │   │   ├── billing.types.ts
+│   │   │   │   ├── billingStore.ts
+│   │   │   │   ├── commandPricing.ts
+│   │   │   │   ├── planQuotas.ts
+│   │   │   │   ├── quotaGuard.ts
+│   │   │   │   └── stripe.client.ts
+│   │   │   ├── billing.zip
+│   │   │   ├── domain
+│   │   │   ├── http
+│   │   │   │   ├── commandRoute.ts
+│   │   │   │   ├── contracts
+│   │   │   │   │   └── task.execute.contract.ts
+│   │   │   │   ├── middlewares
+│   │   │   │   │   ├── apiKeyAuth.ts
+│   │   │   │   │   └── auth.middleware.ts
+│   │   │   │   └── routes
+│   │   │   │       ├── bootstrap.routes.ts
+│   │   │   │       └── task.execute.routes.ts
+│   │   │   ├── index.ts
+│   │   │   ├── infra
+│   │   │   │   ├── commandPersistence.ts
+│   │   │   │   ├── eventStore.ts
+│   │   │   │   └── idempotencyStore.ts
+│   │   │   ├── ledger
+│   │   │   │   ├── compensation.service.ts
+│   │   │   │   ├── ledger.history.ts
+│   │   │   │   ├── ledger.repository.ts
+│   │   │   │   ├── ledger.routes.ts
+│   │   │   │   ├── ledger.service.ts
+│   │   │   │   ├── ledger.store.ts
+│   │   │   │   └── ledger.types.ts
+│   │   │   ├── ledger.zip
+│   │   │   ├── modules
+│   │   │   │   ├── ledger
+│   │   │   │   └── tasks
+│   │   │   │       ├── bootstrap.ts
+│   │   │   │       ├── definitions
+│   │   │   │       │   └── example.task.v1.ts
+│   │   │   │       ├── retry.policy.ts
+│   │   │   │       ├── task.executor.ts
+│   │   │   │       ├── task.orchestrator.ts
+│   │   │   │       ├── task.pricing.registry.ts
+│   │   │   │       ├── task.pricing.ts
+│   │   │   │       ├── task.pricing.types.ts
+│   │   │   │       ├── task.registry.v2.ts
+│   │   │   │       ├── task.runner.ts
+│   │   │   │       ├── tasks.controller.ts
+│   │   │   │       ├── tasks.metrics.ts
+│   │   │   │       ├── tasks.registry.ts
+│   │   │   │       ├── tasks.routes.ts
+│   │   │   │       ├── tasks.service.ts
+│   │   │   │       ├── tasks.types.ts
+│   │   │   │       └── textProcess
+│   │   │   ├── observability
+│   │   │   │   ├── auditStore.ts
+│   │   │   │   ├── logger.ts
+│   │   │   │   └── metrics.ts
+│   │   │   ├── pg-test.mjs
+│   │   │   ├── pricing
+│   │   │   │   ├── pricing.config.ts
+│   │   │   │   ├── pricing.service.ts
+│   │   │   │   └── pricing.types.ts
+│   │   │   ├── prisma
+│   │   │   │   ├── client.js
+│   │   │   │   └── prisma.config.ts
+│   │   │   ├── providers
+│   │   │   │   └── openai
+│   │   │   │       └── openai.client.ts
+│   │   │   ├── rate-limit
+│   │   │   │   ├── rateLimit.guard.ts
+│   │   │   │   └── rateLimit.store.ts
+│   │   │   └── tasks
+│   │   │       ├── imageEnhance
+│   │   │       │   ├── handler.ts
+│   │   │       │   ├── index.ts
+│   │   │       │   ├── index.v2.ts
+│   │   │       │   ├── pricing.ts
+│   │   │       │   └── schema.ts
+│   │   │       ├── imageProductPhoto
+│   │   │       │   └── index.v2.ts
+│   │   │       ├── textSummarization
+│   │   │       │   ├── handler.ts
+│   │   │       │   ├── index.ts
+│   │   │       │   ├── index.v2.ts
+│   │   │       │   ├── pricing.ts
+│   │   │       │   └── schema.ts
+│   │   │       └── textSummarization.test.ts
+│   │   ├── ts-resolution-test
+│   │   │   ├── js
+│   │   │   │   ├── target.ts
+│   │   │   │   └── test.ts
+│   │   │   └── ts
+│   │   │       ├── target.ts
+│   │   │       └── test.ts
+│   │   └── tsconfig.json
+│   └── web
+│       ├── index.html
+│       ├── package.json
+│       ├── src
+│       │   ├── App.tsx
+│       │   ├── main.tsx
+│       │   └── state
+│       │       ├── useCommandBus.ts
+│       │       └── useTaskStore.ts
+│       ├── vite.config.t
+│       └── vite.config.ts
+├── docs
+│   └── OPENAPI_V1.md
+├── package.json
+├── packages
+│   ├── core
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── domain
+│   │   │   │   ├── BillingPlan.types.ts
+│   │   │   │   ├── Task.types.ts
+│   │   │   │   ├── TaskCommand.types.ts
+│   │   │   │   └── TaskEvent.types.ts
+│   │   │   ├── engine
+│   │   │   │   ├── commandBus.ts
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── replayEngine.ts
+│   │   │   │   ├── taskEngine.ts
+│   │   │   │   ├── taskFactory.ts
+│   │   │   │   └── taskMutations.ts
+│   │   │   ├── index.ts
+│   │   │   ├── infra
+│   │   │   │   └── logger.ts
+│   │   │   ├── rules
+│   │   │   │   ├── billing.ts
+│   │   │   │   ├── permissions.ts
+│   │   │   │   ├── taskPriority.ts
+│   │   │   │   └── taskStatus.ts
+│   │   │   ├── schemas
+│   │   │   │   ├── task.schema.ts
+│   │   │   │   └── validateTask.ts
+│   │   │   └── store
+│   │   │       ├── eventStore.ts
+│   │   │       ├── taskStore.ts
+│   │   │       └── usageStore.ts
+│   │   └── tsconfig.json
+│   └── ui
+│       ├── package.json
+│       ├── src
+│       │   └── index.tsx
+│       └── tsconfig.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+└── tests
+    └── helpers
+        ├── apiClient.ts
+        ├── bootstrap.ts
+        └── db.ts
+
+55 directories, 133 files
+
+### PACKAGES
+./package.json
+{
+  "name": "@snaptask/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:format": "prisma format"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.1.0",
+    "fastify": "^4.29.1",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "prisma": "^7.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3"
+  }
+}
+./packages/ui/package.json
+{
+  "name": "@snaptask/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  }
+}
+./packages/core/package.json
+{
+  "name": "@snaptask/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "zod": "^4.1.13"
+  }
+}
+./apps/web/package.json
+{
+  "name": "@snaptask/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@snaptask/core": "workspace:*",
+    "@snaptask/ui": "workspace:*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "@vitejs/plugin-react": "^5.1.2",
+    "typescript": "^5.9.3"
+  }
+}
+./apps/api/package.json
+{
+  "name": "@snaptask/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "6.13.0",
+    "dotenv": "^17.2.3",
+    "fastify": "^4.27.0",
+    "openai": "^4.0.0",
+    "pg": "^8.16.3",
+    "prom-client": "^15.1.0",
+    "stripe": "^20.0.0",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "prisma": "6.13.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.3"
+  }
+}
+
+### ENV FILES
+./apps/api/.env

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SnapTask - Contractual Input Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#525252", // Solid neutral grey block
+                        "primary-hover": "#404040",
+                        "background-dark": "#0a0a0a", // Deep industrial black
+                        "surface-dark": "#171717", // Rigid container bg
+                        "input-bg": "#262626", // Dark grey field background
+                        "border-light": "#d4d4d8", // Light grey outline
+                        "border-stark": "#404040", // Stark divider
+                        "text-main": "#ffffff",
+                        "text-dim": "#a3a3a3",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px", // Rigid
+                        "sm": "2px",
+                        "md": "2px",
+                        "lg": "4px",
+                        "xl": "4px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #404040;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4d4d8;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .pt-safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        .pb-safe-bottom {
+            padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display antialiased text-text-main overflow-hidden h-screen flex flex-col selection:bg-white selection:text-black">
+<header class="flex-none bg-background-dark border-b border-border-stark pt-safe-top">
+<div class="flex items-center px-4 py-4 justify-between">
+<button class="text-white flex size-10 shrink-0 items-center justify-center hover:bg-white/10 rounded-sm transition-colors border border-transparent hover:border-border-stark">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h2 class="text-white text-base font-bold uppercase tracking-widest">Contract #8X-92</h2>
+<div class="flex items-center gap-2 mt-1">
+<div class="size-1.5 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.5)]"></div>
+<span class="text-[10px] font-mono text-text-dim uppercase tracking-widest">Active // Awaiting Input</span>
+</div>
+</div>
+<button class="text-white flex size-10 shrink-0 items-center justify-center hover:bg-white/10 rounded-sm transition-colors border border-transparent hover:border-border-stark">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</div>
+<div class="grid grid-cols-2 border-t border-border-stark divide-x divide-border-stark">
+<div class="px-4 py-3 bg-surface-dark">
+<p class="text-text-dim text-[10px] font-bold uppercase tracking-widest mb-1">Hash</p>
+<p class="text-white text-xs font-mono truncate tracking-wider">0x4A7...B2F</p>
+</div>
+<div class="px-4 py-3 bg-surface-dark">
+<p class="text-text-dim text-[10px] font-bold uppercase tracking-widest mb-1">Type</p>
+<p class="text-white text-xs font-mono uppercase tracking-wider">Auto_Exec</p>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-5 space-y-8 bg-background-dark">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline">
+<label class="text-text-dim text-xs font-bold uppercase tracking-widest">Input_01 (String)</label>
+<span class="text-[10px] font-mono text-text-dim border border-border-stark px-1.5 py-0.5">[MAX 256]</span>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-dim text-lg group-focus-within:text-white transition-colors">edit_note</span>
+</div>
+<input class="block w-full rounded-sm border border-border-light bg-input-bg text-white pl-10 pr-3 py-3 shadow-none focus:border-white focus:ring-1 focus:ring-white sm:text-sm font-mono placeholder:text-text-dim/30 transition-all" placeholder="[ Enter string value ]" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline">
+<label class="text-text-dim text-xs font-bold uppercase tracking-widest">Input_02 (Enum)</label>
+<span class="text-[10px] font-mono text-black bg-white px-1.5 py-0.5 font-bold">[REQUIRED]</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only" name="enum_select" type="radio"/>
+<div class="flex items-center justify-center py-3 px-3 rounded-sm border border-border-stark bg-input-bg text-sm font-medium transition-all text-text-dim hover:bg-white/5 peer-checked:bg-white peer-checked:text-black peer-checked:border-white">
+<span class="truncate uppercase tracking-tight font-mono">Option_A</span>
+</div>
+<div class="absolute top-0 right-0 w-0 h-0 border-t-[6px] border-r-[6px] border-t-black border-r-transparent hidden peer-checked:block"></div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="enum_select" type="radio"/>
+<div class="flex items-center justify-center py-3 px-3 rounded-sm border border-border-stark bg-input-bg text-sm font-medium transition-all text-text-dim hover:bg-white/5 peer-checked:bg-white peer-checked:text-black peer-checked:border-white">
+<span class="truncate uppercase tracking-tight font-mono">Option_B</span>
+</div>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline">
+<label class="text-text-dim text-xs font-bold uppercase tracking-widest">Attachment_01 (Blob)</label>
+<span class="text-[10px] font-mono text-text-dim border border-border-stark px-1.5 py-0.5">[PDF ONLY]</span>
+</div>
+<label class="flex flex-col items-center justify-center w-full h-36 border border-dashed border-border-light rounded-sm cursor-pointer bg-input-bg hover:bg-surface-dark transition-all group relative overflow-hidden">
+<div class="absolute inset-0 opacity-0 group-hover:opacity-5 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,1)_25%,rgba(255,255,255,1)_50%,transparent_50%,transparent_75%,rgba(255,255,255,1)_75%,rgba(255,255,255,1)_100%)] bg-[length:10px_10px] transition-opacity"></div>
+<div class="flex flex-col items-center justify-center pt-5 pb-6 z-10">
+<span class="material-symbols-outlined text-3xl text-text-dim mb-3 group-hover:text-white transition-colors">upload_file</span>
+<p class="mb-1 text-sm text-text-dim font-mono uppercase tracking-wide group-hover:text-white transition-colors">Upload File</p>
+<p class="text-[10px] text-text-dim/60 font-mono">MAX 5MB</p>
+</div>
+<input class="hidden" type="file"/>
+</label>
+</div>
+<div class="mt-8 border-t border-border-stark pt-6">
+<h3 class="text-white text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+            Transaction Ledger
+        </h3>
+<div class="space-y-3 font-mono text-xs tracking-wide p-4 bg-surface-dark border border-border-stark rounded-sm">
+<div class="flex justify-between items-center text-text-dim">
+<span>BASE_COST</span>
+<span>0.05 ETH</span>
+</div>
+<div class="flex justify-between items-center text-text-dim">
+<span>GAS_LIMIT</span>
+<span>21000</span>
+</div>
+<div class="flex justify-between items-center text-text-dim">
+<span>SVC_FEE (1%)</span>
+<span>0.0005 ETH</span>
+</div>
+<div class="h-px bg-border-stark my-2 border-t border-black"></div>
+<div class="flex justify-between items-center text-white font-bold text-sm">
+<span>TOTAL ESTIMATED</span>
+<span class="text-white bg-white/10 px-2 py-0.5 rounded-sm">0.0505 ETH</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="flex-none bg-background-dark border-t border-border-stark p-4 pb-safe-bottom">
+<button class="w-full bg-primary hover:bg-primary-hover text-white font-bold py-4 px-4 rounded-sm shadow-none active:translate-y-px transition-all flex items-center justify-between group border border-transparent hover:border-gray-500">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-xl text-white/70 group-hover:text-white">fingerprint</span>
+<span class="tracking-widest uppercase text-xs">Pay and Execute</span>
+</span>
+<span class="font-mono text-xs bg-black/30 px-2 py-1.5 rounded-sm text-white border border-white/10 group-hover:border-white/30 transition-colors">0.0505 ETH</span>
+</button>
+</footer>
+</body></html>

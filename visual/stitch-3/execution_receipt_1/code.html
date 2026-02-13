@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Execution Receipt</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "terminal-bg": "#0f0f11",
+                        "terminal-card": "#1a1a1d",
+                        "terminal-border": "#2c2c30",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-[400px] flex flex-col gap-8">
+<!-- State 1: Success -->
+<div class="relative flex h-auto w-full flex-col bg-background-light dark:bg-background-dark overflow-hidden rounded-xl shadow-2xl border border-terminal-border">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-terminal-border">
+<div class="text-black dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display pr-12 uppercase">Execution Receipt</h2>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Status Header: Success -->
+<div class="bg-primary/10 border-l-4 border-primary p-5 mb-2">
+<p class="text-primary text-xs font-mono font-bold tracking-widest uppercase mb-1">Status Code: 0x1</p>
+<h2 class="text-black dark:text-white text-2xl font-bold leading-tight font-display">DELIVERY COMPLETED</h2>
+<p class="text-gray-500 text-xs mt-2 font-mono">Process finalized successfully.</p>
+</div>
+<!-- Transaction Metadata Block -->
+<div class="p-4 grid grid-cols-2 gap-px bg-terminal-border border-y border-terminal-border">
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1">
+<p class="text-gray-500 text-xs font-mono uppercase">Contract ID</p>
+<p class="text-black dark:text-white text-sm font-medium font-mono">#8821-B</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1">
+<p class="text-gray-500 text-xs font-mono uppercase">Timestamp</p>
+<p class="text-black dark:text-white text-sm font-medium font-mono">2023-10-27 14:02</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1">
+<p class="text-gray-500 text-xs font-mono uppercase">Latency</p>
+<p class="text-black dark:text-white text-sm font-medium font-mono">24ms</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1">
+<p class="text-gray-500 text-xs font-mono uppercase">Gas Fee</p>
+<p class="text-primary text-sm font-medium font-mono">0.004 ETH (Low)</p>
+</div>
+</div>
+<!-- Execution Log Summary -->
+<div class="mt-6 px-4">
+<h4 class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-4 font-mono border-b border-terminal-border pb-2">Execution Log</h4>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<p class="text-black dark:text-white text-sm font-mono">Compiling assets... Done</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<p class="text-black dark:text-white text-sm font-mono">Verifying hash signatures... Done</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<p class="text-black dark:text-white text-sm font-mono">Transferring ownership... Done</p>
+</div>
+</div>
+</div>
+<!-- Deliverable Asset Card -->
+<div class="mt-8 mx-4 p-4 rounded-lg bg-terminal-card border border-terminal-border flex items-center justify-between group cursor-pointer hover:border-primary transition-colors duration-200">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">folder_zip</span>
+</div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-medium">project_alpha_final.zip</p>
+<p class="text-gray-500 text-xs font-mono">24.5 MB</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary">download</span>
+</div>
+<!-- Signature Footer -->
+<div class="mt-8 px-4 py-6 border-t border-terminal-border bg-black/20">
+<div class="flex justify-between items-end">
+<div class="flex flex-col gap-1">
+<p class="text-gray-600 text-[10px] font-mono uppercase tracking-wider">Proof of Execution</p>
+<p class="text-gray-400 text-[10px] font-mono">Hash: 0x7d9283...3a1</p>
+</div>
+<!-- Abstract barcode visual -->
+<div class="flex h-8 items-end gap-[2px] opacity-50">
+<div class="w-1 h-full bg-white"></div>
+<div class="w-[2px] h-3/4 bg-white"></div>
+<div class="w-[3px] h-full bg-white"></div>
+<div class="w-1 h-1/2 bg-white"></div>
+<div class="w-[1px] h-full bg-white"></div>
+<div class="w-2 h-2/3 bg-white"></div>
+<div class="w-[1px] h-full bg-white"></div>
+<div class="w-[2px] h-3/4 bg-white"></div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-background-light dark:bg-background-dark sticky bottom-0 border-t border-terminal-border">
+<button class="w-full bg-primary hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-lg">download</span>
+                        DOWNLOAD DELIVERABLE
+                    </button>
+</div>
+</div>
+</div>
+<!-- State 2: Failure / Refund -->
+<div class="relative flex h-auto w-full flex-col bg-background-light dark:bg-background-dark overflow-hidden rounded-xl shadow-2xl border border-terminal-border opacity-90 scale-[0.98]">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-terminal-border">
+<div class="text-black dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-black dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display pr-12 uppercase">Execution Receipt</h2>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Status Header: Failure -->
+<div class="bg-red-500/10 border-l-4 border-red-500 p-5 mb-2">
+<p class="text-red-500 text-xs font-mono font-bold tracking-widest uppercase mb-1">Status Code: 0x0</p>
+<h2 class="text-white text-2xl font-bold leading-tight font-display">NON-COMPLIANT</h2>
+<p class="text-red-400 text-xs mt-2 font-mono">Service Level Agreement breached.</p>
+</div>
+<!-- Transaction Metadata Block -->
+<div class="p-4 grid grid-cols-2 gap-px bg-terminal-border border-y border-terminal-border">
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1">
+<p class="text-gray-500 text-xs font-mono uppercase">Contract ID</p>
+<p class="text-black dark:text-white text-sm font-medium font-mono">#9942-X</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1">
+<p class="text-gray-500 text-xs font-mono uppercase">Timestamp</p>
+<p class="text-black dark:text-white text-sm font-medium font-mono">2023-10-27 14:05</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark p-3 flex flex-col gap-1 col-span-2">
+<p class="text-gray-500 text-xs font-mono uppercase">Failure Reason</p>
+<p class="text-red-400 text-sm font-medium font-mono">Timeout at Node 4 ( &gt; 5000ms )</p>
+</div>
+</div>
+<!-- Execution Log Summary (Failure) -->
+<div class="mt-6 px-4">
+<h4 class="text-gray-500 text-xs font-bold tracking-widest uppercase mb-4 font-mono border-b border-terminal-border pb-2">Execution Log</h4>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-500 text-sm">check_circle</span>
+<p class="text-gray-400 text-sm font-mono">Compiling assets... Done</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-500 text-sm">error</span>
+<p class="text-white text-sm font-mono">Verifying hash signatures... Failed</p>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined text-gray-600 text-sm">radio_button_unchecked</span>
+<p class="text-gray-600 text-sm font-mono">Transferring ownership...</p>
+</div>
+</div>
+</div>
+<!-- Refund Notice -->
+<div class="mt-8 mx-4 p-4 rounded-lg bg-red-500/5 border border-red-500/20 flex flex-col items-center justify-center text-center gap-2">
+<span class="material-symbols-outlined text-red-500 mb-1">currency_exchange</span>
+<p class="text-red-500 text-sm font-bold uppercase tracking-wide">Refund Processed</p>
+<p class="text-gray-400 text-xs font-mono">Escrow funds returned to origin wallet.</p>
+<div class="mt-2 py-1 px-3 bg-red-500/10 rounded text-red-400 font-mono text-xs border border-red-500/20">
+                        REF ID: #RF-992
+                    </div>
+</div>
+<!-- Signature Footer -->
+<div class="mt-8 px-4 py-6 border-t border-terminal-border bg-black/20">
+<div class="flex justify-between items-end">
+<div class="flex flex-col gap-1">
+<p class="text-gray-600 text-[10px] font-mono uppercase tracking-wider">Proof of Failure</p>
+<p class="text-gray-400 text-[10px] font-mono">Hash: 0x000000...000</p>
+</div>
+<!-- Abstract barcode visual -->
+<div class="flex h-8 items-end gap-[2px] opacity-30 grayscale">
+<div class="w-1 h-full bg-white"></div>
+<div class="w-[2px] h-3/4 bg-white"></div>
+<div class="w-[3px] h-full bg-white"></div>
+<div class="w-1 h-1/2 bg-white"></div>
+<div class="w-[1px] h-full bg-white"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contractual Input Form V2</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#16709c",
+                        "background-light": "#e2e4e6",
+                        "background-dark": "#111517",
+                        "surface-dark": "#1c2326",
+                        "border-dark": "#3d4b52",
+                        "text-muted": "#9eafb7",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Roboto Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px", 
+                        "sm": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>/* Custom Styles for Industrial Theme */
+body {
+    font-family: "Space Grotesk", sans-serif
+    }
+.mono-text {
+    font-family: "Roboto Mono", monospace
+    }
+/* Rigid Borders Override */
+.rigid-border {
+    border: 2px solid #3d4b52
+    }
+.rigid-border-focus:focus-within {
+    border-color: #16709c
+    }
+/* Select Chevron Override */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDrBByu3d7cjlP-zYoZOgekTFgmAAvv6iB31uV4V4nPFMrf2I_3-4ndlRiLRjSyf2OGuTohc_o7EYq-GKozo5NZv16j-eZzJeDGFCM7TVd28hO7m5EceU2qRbCi9m0ykOAUwaXCTnzarMl0u2FIYRkWXtgu83mhlNIax0158CoerSGcB4fAAyTiYGCyzkdJ7GqjxJ8-KpPXQ4H4pONZERp7M9TJHlFm_Rd8i7xIQEHSRGU31nLTJpkbPQaG18iOwHVtUenIDoXUHQ);
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25em
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col items-center justify-start text-white overflow-x-hidden">
+<div class="w-full max-w-md flex flex-col min-h-screen border-x-0 sm:border-x-2 border-border-dark bg-[#111517]">
+<!-- Top App Bar -->
+<div class="flex items-center bg-[#111517] p-4 border-b-2 border-[#3d4b52] justify-between sticky top-0 z-10">
+<button aria-label="Go Back" class="text-white flex items-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h2 class="text-white text-base font-bold tracking-widest uppercase font-mono">TASK_PAGE // V2</h2>
+<button class="text-[#9eafb7] text-xs font-bold tracking-widest hover:text-red-500 transition-colors uppercase">
+                ABORT
+            </button>
+</div>
+<!-- Scrollable Content Area -->
+<div class="flex-1 flex flex-col gap-0">
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 bg-[#0d1011]">
+<div class="flex flex-col gap-1 border-b-2 border-r-2 border-[#3d4b52] p-4">
+<p class="text-[#5f6f77] text-xs font-mono font-bold tracking-wider">CONTRACT_ID</p>
+<p class="text-white text-sm font-mono tracking-tight">XK-992-QA</p>
+</div>
+<div class="flex flex-col gap-1 border-b-2 border-[#3d4b52] p-4">
+<p class="text-[#5f6f77] text-xs font-mono font-bold tracking-wider">TIMESTAMP</p>
+<p class="text-primary text-sm font-mono tracking-tight">2023-10-27T14:00Z</p>
+</div>
+<div class="flex flex-col gap-1 border-b-2 border-r-2 border-[#3d4b52] p-4">
+<p class="text-[#5f6f77] text-xs font-mono font-bold tracking-wider">NODE_REF</p>
+<p class="text-white text-sm font-mono tracking-tight">NODE_04</p>
+</div>
+<div class="flex flex-col gap-1 border-b-2 border-[#3d4b52] p-4">
+<p class="text-[#5f6f77] text-xs font-mono font-bold tracking-wider">STATUS</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-yellow-500 animate-pulse"></span>
+<p class="text-white text-sm font-mono tracking-tight">PENDING_INPUT</p>
+</div>
+</div>
+</div>
+<!-- Form Section -->
+<div class="p-0 flex flex-col">
+<!-- UID Input -->
+<div class="p-6 border-b-2 border-[#3d4b52]">
+<label class="flex flex-col w-full gap-2 group">
+<div class="flex justify-between items-baseline">
+<span class="text-white text-sm font-bold tracking-widest font-mono">TARGET_UID</span>
+<span class="text-[#5f6f77] text-[10px] font-mono">[REQUIRED]</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-4 text-[#5f6f77] font-mono select-none">UID://</span>
+<input class="w-full bg-[#1c2326] text-white border-2 border-[#3d4b52] focus:border-primary focus:ring-0 p-4 pl-16 text-base font-mono placeholder-[#3d4b52] outline-none transition-colors" placeholder="ENTER_STRING" spellcheck="false" type="text"/>
+</div>
+</label>
+</div>
+<!-- Document Upload Card -->
+<div class="p-6 border-b-2 border-[#3d4b52]">
+<div class="flex flex-col gap-2 mb-4">
+<div class="flex justify-between items-baseline">
+<span class="text-white text-sm font-bold tracking-widest font-mono">DOCUMENT_UPLOAD [DOC_A]</span>
+<span class="text-[#5f6f77] text-[10px] font-mono">MAX:5MB</span>
+</div>
+<p class="text-[#9eafb7] text-xs font-mono">REQ_FORMAT: PDF/JSON_STREAM</p>
+</div>
+<div class="relative w-full h-32 border-2 border-dashed border-[#3d4b52] bg-[#161a1d] hover:bg-[#1c2326] hover:border-[#5f6f77] transition-all group cursor-pointer flex flex-col items-center justify-center gap-2">
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file"/>
+<span class="material-symbols-outlined text-[#5f6f77] group-hover:text-primary transition-colors text-3xl">upload_file</span>
+<span class="text-[#5f6f77] group-hover:text-white text-xs font-bold font-mono tracking-widest">INITIATE_UPLOAD_SEQUENCE</span>
+</div>
+</div>
+<!-- Select Enum -->
+<div class="p-6 border-b-2 border-[#3d4b52]">
+<label class="flex flex-col w-full gap-2">
+<div class="flex justify-between items-baseline">
+<span class="text-white text-sm font-bold tracking-widest font-mono">EXECUTION_PROTOCOL</span>
+<span class="text-primary text-[10px] font-mono font-bold">SELECT_ONE</span>
+</div>
+<div class="relative">
+<select class="w-full bg-[#1c2326] text-white border-2 border-[#3d4b52] focus:border-primary focus:ring-0 h-14 pl-4 pr-10 text-sm font-mono uppercase cursor-pointer outline-none transition-colors">
+<option disabled="" selected="" value="">-- SELECT_TYPE --</option>
+<option value="immediate">IMMEDIATE_EXECUTION</option>
+<option value="batch">BATCH_PROCESS_V2</option>
+<option value="deferred">DEFERRED_TIMELOCK</option>
+</select>
+</div>
+</label>
+</div>
+<!-- Info Section (Visual Filler) -->
+<div class="p-6 bg-[#0d1011] border-b-2 border-[#3d4b52] flex flex-col gap-3 opacity-60 pointer-events-none grayscale">
+<div class="flex justify-between items-center">
+<span class="text-xs text-[#5f6f77] font-mono">ESTIMATED_GAS</span>
+<span class="text-xs text-white font-mono">0.0042 ETH</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-[#5f6f77] font-mono">NETWORK_LOAD</span>
+<div class="w-24 h-1 bg-[#3d4b52] overflow-hidden">
+<div class="w-[70%] h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="sticky bottom-0 bg-[#111517] p-4 border-t-2 border-[#3d4b52] z-20">
+<button class="w-full bg-primary hover:bg-[#1a85b8] text-white h-14 flex items-center justify-center gap-3 active:scale-[0.99] transition-all group">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="text-base font-bold tracking-[0.1em] font-mono uppercase">PAY AND EXECUTE</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="text-center mt-2">
+<p class="text-[10px] text-[#3d4b52] font-mono">SECURED BY SNAPTASK PROTOCOL V2.4</p>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Catalog Terminal V3</title>
+<!-- Material Symbols Link -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#16709c",
+              "background-light": "#f6f7f8",
+              "background-dark": "#111c21",
+              "industrial-border": "#2c363f",
+              "industrial-text": "#8da1aa",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom utilities for that strict brutalist look */
+        .tabular-nums {
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display antialiased selection:bg-primary selection:text-white">
+<!-- Top Header Block -->
+<header class="sticky top-0 z-10 bg-background-light dark:bg-background-dark border-b-2 border-industrial-border">
+<div class="flex items-center justify-between p-4 pb-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+<div class="flex flex-col">
+<h1 class="text-black dark:text-white text-base font-black tracking-tighter leading-none uppercase">Terminal V3</h1>
+<span class="text-xs font-bold text-primary tracking-[0.15em] uppercase mt-1">Read_Only</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-industrial-text font-mono font-bold uppercase tracking-widest mb-0.5">Session_ID</span>
+<span class="text-black dark:text-white text-sm font-mono font-bold tracking-widest">SES-9921</span>
+</div>
+</div>
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-1 px-2 py-2 bg-[#e5e7eb] dark:bg-[#1a262e] border-y-2 border-industrial-border text-[10px] font-bold text-industrial-text uppercase tracking-wider">
+<div class="col-span-2 pl-2">ID</div>
+<div class="col-span-5">Category</div>
+<div class="col-span-2 text-right">Cost</div>
+<div class="col-span-3 text-right pr-2">Result</div>
+</div>
+</header>
+<!-- Main Content: Task Grid -->
+<main class="flex-1 overflow-y-auto pb-24">
+<div class="flex flex-col divide-y-2 divide-industrial-border">
+<!-- Task Item 1 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-001</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Reconnaissance</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">1.5k</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Data</span>
+</div>
+</div>
+<!-- Task Item 2 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-002</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Elimination</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">5.0k</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Conf</span>
+</div>
+</div>
+<!-- Task Item 3 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-003</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Transport</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">800</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Arrv</span>
+</div>
+</div>
+<!-- Task Item 4 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-004</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Asset_Rec</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">2.2k</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Phys</span>
+</div>
+</div>
+<!-- Task Item 5 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-808</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Surveillance</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">500</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Bin</span>
+</div>
+</div>
+<!-- Task Item 6 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-809</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Intercept</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">1.2k</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Stop</span>
+</div>
+</div>
+<!-- Task Item 7 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-912</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Data_Mining</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">3.4k</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Hash</span>
+</div>
+</div>
+<!-- Task Item 8 -->
+<div class="grid grid-cols-12 gap-1 px-2 py-4 items-center hover:bg-white/5 transition-colors">
+<div class="col-span-2 pl-2">
+<span class="font-mono text-xs font-bold text-primary tabular-nums">T-955</span>
+</div>
+<div class="col-span-5">
+<span class="text-sm font-bold text-black dark:text-white uppercase truncate block">Sec_Bypass</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs font-mono text-industrial-text tabular-nums">900</span>
+</div>
+<div class="col-span-3 text-right pr-2">
+<span class="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-[#2c363f] text-[10px] font-bold text-[#9eafb7] uppercase border border-industrial-border">Open</span>
+</div>
+</div>
+<!-- End of list marker -->
+<div class="p-8 flex items-center justify-center opacity-50">
+<span class="text-[10px] uppercase tracking-[0.2em] text-industrial-text">// END_OF_MANIFEST</span>
+</div>
+</div>
+</main>
+<!-- Action Footer -->
+<footer class="fixed bottom-0 w-full z-20 bg-background-light dark:bg-background-dark border-t-2 border-industrial-border p-4 pb-8 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+<button class="w-full relative group overflow-hidden bg-primary rounded hover:bg-primary/90 transition-all duration-200 active:scale-[0.99] shadow-[0_0_15px_rgba(22,112,156,0.3)] border border-[#3ba0d6]">
+<!-- Button Content -->
+<div class="relative z-10 flex items-center justify-center h-14 gap-3">
+<span class="material-symbols-outlined text-white/70 animate-pulse">power_settings_new</span>
+<span class="text-white font-black text-lg tracking-[0.15em] uppercase">Execute Sequence</span>
+</div>
+<!-- Decorative tech lines on button -->
+<div class="absolute top-0 left-0 w-1 h-full bg-white/20"></div>
+<div class="absolute top-0 right-0 w-1 h-full bg-white/20"></div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-black/20"></div>
+</button>
+</footer>
+</body></html>

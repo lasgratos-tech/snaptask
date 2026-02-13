@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contractual Input Form V3</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#16709c",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111c21",
+                        "surface-dark": "#1a262d",
+                        "border-dark": "#2c3b42",
+                        "text-dim": "#8da1ac",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar to match terminal aesthetic */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111c21;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c3b42;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #16709c;
+        }
+        
+        /* Force uppercase for specific elements */
+        .uppercase-strict {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased selection:bg-primary selection:text-white min-h-screen flex flex-col justify-between">
+<!-- Top Bar / Header -->
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-300 dark:border-border-dark">
+<div class="flex items-center justify-between px-4 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<h1 class="text-sm font-bold text-gray-900 dark:text-white uppercase-strict tracking-widest">SnapTask_V3</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-xs font-mono text-text-dim">NET: LIVE</span>
+</div>
+</div>
+<!-- Contract Context Bar -->
+<div class="bg-gray-200 dark:bg-surface-dark border-b border-gray-300 dark:border-border-dark px-4 py-3 flex flex-col gap-1">
+<h2 class="text-xs font-mono text-text-dim uppercase-strict">CONTRACT_ID: 0X99_V3</h2>
+<div class="flex justify-between items-baseline">
+<span class="text-lg font-bold text-gray-900 dark:text-white leading-none">FORM INPUT_SEQ</span>
+<span class="text-xs font-bold text-primary border border-primary px-1.5 py-0.5 rounded uppercase-strict">AWAITING INPUT</span>
+</div>
+</div>
+</header>
+<!-- Main Content Form -->
+<main class="flex-grow p-4 space-y-8 max-w-md mx-auto w-full">
+<!-- Section 1: Text Input -->
+<div class="group">
+<div class="flex items-baseline justify-between mb-2">
+<label class="text-xs font-bold text-gray-500 dark:text-text-dim uppercase-strict" for="input_a">Parameter_01 [Text]</label>
+<span class="text-[10px] font-mono text-primary opacity-0 group-focus-within:opacity-100 transition-opacity">EDITING...</span>
+</div>
+<div class="relative">
+<input class="block w-full bg-gray-100 dark:bg-surface-dark border border-gray-300 dark:border-border-dark rounded-none focus:ring-1 focus:ring-primary focus:border-primary text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 font-mono text-base py-4 px-4 uppercase" id="input_a" placeholder="ENTER_VALUE_HERE" type="text"/>
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary scale-y-0 group-focus-within:scale-y-100 transition-transform origin-bottom"></div>
+</div>
+<p class="mt-1 text-[10px] text-gray-400 dark:text-gray-600 font-mono">REQ: ALPHANUMERIC_STRING // MAX_LEN: 64</p>
+</div>
+<!-- Section 2: Enum Option -->
+<div class="group">
+<label class="block text-xs font-bold text-gray-500 dark:text-text-dim uppercase-strict mb-2">Parameter_02 [Enum]</label>
+<div class="grid grid-cols-2 gap-px bg-gray-300 dark:bg-border-dark border border-gray-300 dark:border-border-dark rounded overflow-hidden">
+<!-- Option 1 -->
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only" name="option_b" type="radio" value="opt1"/>
+<div class="flex items-center justify-center h-14 bg-gray-100 dark:bg-surface-dark text-gray-500 dark:text-text-dim peer-checked:bg-primary peer-checked:text-white transition-colors duration-75">
+<span class="text-sm font-bold uppercase-strict tracking-wider">Option_A</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="option_b" type="radio" value="opt2"/>
+<div class="flex items-center justify-center h-14 bg-gray-100 dark:bg-surface-dark text-gray-500 dark:text-text-dim peer-checked:bg-primary peer-checked:text-white transition-colors duration-75">
+<span class="text-sm font-bold uppercase-strict tracking-wider">Option_B</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Section 3: File Attachment (Blob) -->
+<div class="group">
+<label class="block text-xs font-bold text-gray-500 dark:text-text-dim uppercase-strict mb-2">Attachment_03 [Blob]</label>
+<div class="relative w-full h-48 bg-gray-200 dark:bg-surface-dark border-2 border-dashed border-gray-300 dark:border-border-dark hover:border-primary dark:hover:border-primary transition-colors cursor-pointer group rounded overflow-hidden">
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" type="file"/>
+<!-- Background visual -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#16709c_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none p-6 text-center">
+<div class="w-12 h-12 mb-3 bg-gray-300 dark:bg-background-dark flex items-center justify-center rounded-none border border-gray-400 dark:border-border-dark group-hover:bg-primary group-hover:border-primary group-hover:text-white text-gray-500 transition-colors">
+<span class="material-symbols-outlined">upload_file</span>
+</div>
+<p class="text-sm font-bold text-gray-900 dark:text-white uppercase-strict mb-1">Buffer: Empty</p>
+<p class="text-xs text-primary font-mono">[ TAP_TO_INJECT_DATA ]</p>
+</div>
+<!-- Corner markers for "tech" feel -->
+<div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-primary"></div>
+<div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-primary"></div>
+<div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-primary"></div>
+</div>
+</div>
+<!-- Section 4: Visual Data Preview (Read Only) -->
+<div class="pt-4 pb-2 border-t border-gray-200 dark:border-border-dark border-dashed">
+<div class="flex justify-between items-end mb-2">
+<label class="text-xs font-bold text-gray-500 dark:text-text-dim uppercase-strict">Target_Verification</label>
+<span class="text-[10px] text-green-500 font-mono">VERIFIED</span>
+</div>
+<div class="relative h-32 w-full bg-gray-900 rounded overflow-hidden group">
+<!-- Abstract visual representation of data/location -->
+<div class="absolute inset-0 bg-cover bg-center opacity-60 mix-blend-overlay" data-alt="Abstract dark cybernetic map grid pattern with blue glowing lines" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApsvbXmXOr4PHhxVxaxiJUJ5rrWN7KDMlNo_9wu2SJwArirWD6AFzUuLxrU8ftH1SqwAY-Joo-B_-8Ah-5amn6bxG7YvUBF2NrGmO38Ojhf7J02E8bE0k9QcMhJOkKPSWtKHnHk7uWmuWNzLa2HqgxvxlVpxnR8IliduexrWRLsdOtNzZ33jnxbUllogh0Pvp8EEZYRj_FqzmuuN4HE9MxfHO5mB1aDZddPMm2GJhbmSpkI9825cvjt20jI5KmuQaYNQ-DT8Biyg');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-3 flex justify-between items-end">
+<div class="font-mono text-xs text-white">
+<p>COORD: 44.22, -12.01</p>
+<p class="text-gray-400">SECURE_LINK_ESTABLISHED</p>
+</div>
+<span class="material-symbols-outlined text-white text-lg">lock</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Action -->
+<footer class="sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-gray-300 dark:border-border-dark p-4 z-50">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<div class="flex justify-between text-[10px] font-mono text-text-dim uppercase">
+<span>Gas: N/A</span>
+<span>Security: High</span>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 rounded-none flex items-center justify-between px-6 active:translate-y-px transition-all shadow-[0_4px_0_0_rgba(0,0,0,0.2)] active:shadow-none group relative overflow-hidden">
+<!-- Button scanning effect -->
+<div class="absolute top-0 -left-full w-1/2 h-full bg-white/10 skew-x-[25deg] group-hover:animate-[shimmer_1.5s_infinite]"></div>
+<span class="uppercase-strict tracking-widest text-lg">Pay And Execute</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="text-[10px] text-center text-gray-400 dark:text-gray-600 mt-2 font-mono">
+                By executing, you agree to the immutable ledger protocol V3.
+            </p>
+</div>
+</footer>
+<!-- CSS Animation for button shimmer -->
+<style>
+        @keyframes shimmer {
+            100% {
+                left: 150%;
+            }
+        }
+    </style>
+</body></html>

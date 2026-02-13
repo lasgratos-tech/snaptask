@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Execution Receipt V2</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#16439c",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "industrial-grey": "#333333",
+                        "border-grey": "#3d4452",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "sm": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display antialiased selection:bg-primary/30">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-12">
+<!-- Header Module -->
+<header class="flex items-center bg-[#111317] border-b-2 border-border-grey p-4 pb-2 justify-between sticky top-0 z-50">
+<div class="text-white flex size-12 shrink-0 items-center justify-center bg-primary/10 rounded-sm">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">terminal</span>
+</div>
+<div class="flex flex-col items-center flex-1 px-4">
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] uppercase">SnapTask_Term_V2</h2>
+<div class="flex items-center gap-2">
+<span class="size-1.5 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[#9ea7b7] text-[10px] font-bold tracking-[0.1em] uppercase">Live_Connection</span>
+</div>
+</div>
+<div class="flex w-12 flex-col items-end justify-center">
+<p class="text-[#9ea7b7] text-xs font-bold leading-normal tracking-[0.015em]">SESS</p>
+<p class="text-primary text-xs font-bold leading-normal tracking-[0.015em]">#882</p>
+</div>
+</header>
+<!-- Headline -->
+<div class="flex flex-col px-4 pt-6 pb-2">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[#9ea7b7]" style="font-size: 20px;">receipt_long</span>
+<h2 class="text-white tracking-widest text-sm font-bold uppercase text-[#9ea7b7]">Execution_Log // Final</h2>
+</div>
+<h1 class="text-white tracking-tight text-3xl font-bold leading-tight uppercase">Receipt_View</h1>
+</div>
+<!-- State Container 1 (Success) -->
+<section class="p-4">
+<div class="flex flex-col rounded-lg border-2 border-border-grey bg-[#111317] overflow-hidden">
+<!-- Image Header -->
+<div class="h-32 bg-cover bg-center relative" data-alt="Abstract green digital data stream visualization representing successful transfer" style='background-image: linear-gradient(0deg, #111317 0%, rgba(17, 19, 23, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvgR6nh_eJApth-K0CZ3svmcVj1eZc8Ixgo8tIa-vZ7WaYSzmxS_rSkrFqbmEL0Tt9x51CvpXDCzahD0C3RxeTnoDxnKy9H2s1ZtuCtW3pJrbpyovRapvx7EwPF16RybOfukiVH-Pr5ENhUndmAWMdiCqj2eWC1TdZaOCI-32npZ__QqXcGG-1yp4gnORaZJxxW5w8md6zK9BXHj2479bOiDbZtE-3NfoocqHzkaIS_pKxDWD8d-Z6wWCnQPfGll2shqgEIFelrg");'>
+<div class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm border border-green-500/30 px-2 py-1 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-green-500" style="font-size: 14px;">check_circle</span>
+<span class="text-green-500 text-[10px] font-bold tracking-wider uppercase">Verified</span>
+</div>
+</div>
+<!-- Content Body -->
+<div class="p-4 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-border-grey pb-4">
+<div class="flex flex-col gap-1">
+<p class="text-[#9ea7b7] text-xs font-medium tracking-wider uppercase">Protocol_Initiated</p>
+<h3 class="text-green-400 tracking-tight text-2xl font-bold leading-none uppercase">Status: Delivered</h3>
+</div>
+<div class="text-right">
+<span class="block text-white text-base font-bold">#8842-ALPHA</span>
+<span class="block text-[#9ea7b7] text-xs font-mono">145ms</span>
+</div>
+</div>
+<!-- Description List -->
+<div class="grid grid-cols-[30%_1fr] gap-y-3 gap-x-4 text-sm font-mono">
+<p class="text-[#9ea7b7] uppercase">Output_Hash</p>
+<p class="text-white break-all">0x7f8a...9c2</p>
+<p class="text-[#9ea7b7] uppercase">File_Size</p>
+<p class="text-white">45.2 MB</p>
+<p class="text-[#9ea7b7] uppercase">Timestamp</p>
+<p class="text-white">2023-10-27 14:02:11 UTC</p>
+</div>
+<!-- Action -->
+<button class="group mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-sm bg-primary h-12 px-4 text-white text-sm font-bold tracking-wider uppercase hover:bg-primary/90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" style="font-size: 20px;">download</span>
+<span>Download_Packet_V2</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Connector Graphic -->
+<div class="flex justify-center -my-2 z-0 opacity-20">
+<div class="h-8 w-0.5 bg-white"></div>
+</div>
+<!-- State Container 2 (Failure) -->
+<section class="p-4 pt-2">
+<div class="flex flex-col rounded-lg border-2 border-border-grey bg-[#111317] overflow-hidden relative">
+<!-- Void Stamp Overlay -->
+<div class="absolute top-4 right-4 z-10 opacity-30 pointer-events-none rotate-[-15deg] border-4 border-red-500 p-2 rounded-lg">
+<span class="text-red-500 text-4xl font-black uppercase tracking-widest">VOID</span>
+</div>
+<!-- Image Header -->
+<div class="h-32 bg-cover bg-center relative grayscale contrast-125" data-alt="Abstract red and black glitch static noise representing system error" style='background-image: linear-gradient(0deg, #111317 0%, rgba(17, 19, 23, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBNlydADfrUaCl5ipg9NARMB44x4Nj9TO5TK8o47CaJFGuIteAAogSiOWLkyW3GHVsC9lJawEChk42k1j52S3pV8aG0hP9EIaqfKzhFM0_NV4pmzhvTCvoYauDpgoGwXB4BqqJqLN_F802FHRlwBIgj1X_82bJpPZ7sYeznJ-ZIdvSEyk3qZ45ir0Z82n5g9CLI9KTTtckXy-JWQyhUIqaapHz-7ufh4T30vH8l69PSlPhoHKXwiaqZNMKbxKwbWY7cyK0XFqX1Q");'>
+<div class="absolute top-3 left-3 bg-red-500/20 backdrop-blur-sm border border-red-500/50 px-2 py-1 rounded-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-red-500" style="font-size: 14px;">warning</span>
+<span class="text-red-500 text-[10px] font-bold tracking-wider uppercase">Err_Checksum_Mismatch</span>
+</div>
+</div>
+<!-- Content Body -->
+<div class="p-4 flex flex-col gap-4">
+<div class="flex justify-between items-start border-b border-border-grey pb-4">
+<div class="flex flex-col gap-1 z-20">
+<div class="inline-flex items-center gap-2">
+<span class="bg-red-500/10 text-red-500 text-[10px] px-1.5 py-0.5 rounded-sm border border-red-500/20 font-bold uppercase tracking-wider">Non-Compliant</span>
+</div>
+<h3 class="text-red-500 tracking-tight text-2xl font-bold leading-none uppercase">Status: Refunded</h3>
+</div>
+</div>
+<!-- Description List -->
+<div class="grid grid-cols-[30%_1fr] gap-y-3 gap-x-4 text-sm font-mono opacity-80">
+<p class="text-[#9ea7b7] uppercase">Reason</p>
+<p class="text-red-300 uppercase font-bold">Non-Compliant_Output</p>
+<p class="text-[#9ea7b7] uppercase">Auto_Refund</p>
+<p class="text-white">INITIATED (TxID: Pending)</p>
+<p class="text-[#9ea7b7] uppercase">Log_Code</p>
+<p class="text-white">ERR_404_Asset_Verify</p>
+</div>
+<!-- Action -->
+<button class="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-sm border border-border-grey bg-[#1a1d24] h-12 px-4 text-[#9ea7b7] text-sm font-bold tracking-wider uppercase hover:bg-white/5 active:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 20px;">visibility</span>
+<span>View_Error_Log</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<div class="mt-auto pt-6 px-4 pb-8 text-center opacity-40">
+<div class="h-px w-full bg-gradient-to-r from-transparent via-[#9ea7b7] to-transparent mb-4"></div>
+<p class="text-[10px] text-[#9ea7b7] font-mono uppercase tracking-[0.2em] flex items-center justify-center gap-3">
+<span class="material-symbols-outlined text-[12px]">lock</span>
+                Terminal Active // Encrypted_Connection_v4
+            </p>
+</div>
+</div>
+</body></html>

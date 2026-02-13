@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transaction Confirmation V3</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#16709c",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111c21", // Using theme config, roughly matches #0f1115 tone
+                        "surface-dark": "#1e2229", // Custom surface color from plan
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .tabular-nums {
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col text-slate-900 dark:text-white font-display overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 pt-6 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-[24px]">chevron_left</span>
+</button>
+<h1 class="text-sm font-medium tracking-wide uppercase text-slate-500 dark:text-slate-400">Confirmation: Task-8821</h1>
+<div class="size-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-5 py-6 flex flex-col max-w-md mx-auto w-full">
+<!-- Summary Card -->
+<div class="bg-white dark:bg-surface-dark rounded-md p-6 shadow-sm border border-slate-200 dark:border-white/5 flex flex-col gap-5">
+<!-- Line Items -->
+<div class="space-y-4">
+<div class="flex justify-between items-baseline gap-4">
+<span class="text-xs font-medium tracking-widest text-slate-500 dark:text-slate-400 uppercase">Base Price</span>
+<span class="text-sm font-normal text-slate-900 dark:text-white tabular-nums">$400.00</span>
+</div>
+<div class="flex justify-between items-baseline gap-4">
+<span class="text-xs font-medium tracking-widest text-slate-500 dark:text-slate-400 uppercase">Platform Fees (1.5%)</span>
+<span class="text-sm font-normal text-slate-900 dark:text-white tabular-nums">$6.00</span>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-slate-100 dark:bg-white/10 w-full my-1"></div>
+<!-- Total -->
+<div class="flex justify-between items-center gap-4">
+<span class="text-xs font-bold tracking-widest text-slate-900 dark:text-white uppercase">Total Execution Cost</span>
+<span class="text-xl font-bold text-primary tabular-nums">$406.00</span>
+</div>
+</div>
+<!-- Spacer to push content down visually in the middle, or just spacing -->
+<div class="h-8"></div>
+<!-- Disclaimer -->
+<div class="px-2 mb-8">
+<p class="text-xs leading-relaxed text-center text-slate-400 dark:text-slate-500">
+                By proceeding, you authorize the immediate release of funds per the SnapTask User Agreement. This action is irrevocable.
+            </p>
+</div>
+</main>
+<!-- Bottom Action -->
+<div class="p-5 pb-8 bg-background-light dark:bg-background-dark max-w-md mx-auto w-full mt-auto">
+<button class="w-full bg-primary hover:bg-[#136086] active:bg-[#0f4d6b] text-white font-semibold py-4 px-6 rounded-md uppercase tracking-wider text-sm transition-colors duration-100 shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span>Pay and Launch Execution</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,10 @@
+{
+  "button": {
+    "height": 48,
+    "radius": 10,
+    "primary": {
+      "background": "{color.primary}",
+      "text": "#FFFFFF"
+    }
+  }
+}

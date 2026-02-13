@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SnapTask Execution Receipt V4</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fb3",
+                        "background-light": "#e5e7eb", // Industrial grey light
+                        "background-dark": "#121212", // Deep dark grey
+                        "surface-dark": "#1a1a1a",
+                        "border-industrial": "#333333",
+                        "text-muted": "#6b7280",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "2px", 
+                        "lg": "4px", 
+                        "xl": "6px", 
+                        "full": "9999px"
+                    },
+                    borderWidth: {
+                        '3': '3px',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom utilities for the specific industrial feel */
+        .scan-line {
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+            background-size: 100% 4px;
+        }
+        .hatch-pattern {
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.03),
+                rgba(255, 255, 255, 0.03) 1px,
+                transparent 1px,
+                transparent 10px
+            );
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased h-screen w-full overflow-hidden flex flex-col">
+<!-- iOS Status Bar Placeholder -->
+<div class="h-12 w-full bg-background-dark shrink-0"></div>
+<!-- Header / Top Bar -->
+<header class="w-full border-b-2 border-border-industrial bg-background-dark px-6 py-4 flex items-center justify-between shrink-0 z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl">terminal</span>
+<span class="text-white text-sm font-bold tracking-widest uppercase">SnapTask // TERMINAL</span>
+</div>
+<div class="h-2 w-2 bg-primary rounded-full animate-pulse"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col relative w-full max-w-md mx-auto p-6 justify-center items-center">
+<!-- Background Pattern -->
+<div class="absolute inset-0 hatch-pattern pointer-events-none opacity-50 z-0"></div>
+<!-- Receipt Container -->
+<div class="relative w-full z-10 flex flex-col gap-0 border-2 border-border-industrial bg-surface-dark shadow-2xl">
+<!-- Status Header -->
+<div class="p-8 border-b-2 border-border-industrial text-center bg-background-dark relative overflow-hidden">
+<!-- Decorative corner accents -->
+<div class="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-primary"></div>
+<div class="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-primary"></div>
+<div class="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-primary"></div>
+<div class="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-primary"></div>
+<p class="text-text-muted text-xs tracking-[0.2em] mb-4 uppercase">Current State</p>
+<h1 class="text-primary text-4xl font-bold tracking-tight leading-none uppercase">Delivered</h1>
+</div>
+<!-- Receipt Metadata Grid -->
+<div class="grid grid-cols-1 divide-y-2 divide-border-industrial bg-surface-dark">
+<!-- Row 1: ID & Origin -->
+<div class="grid grid-cols-2 divide-x-2 divide-border-industrial">
+<div class="p-4 flex flex-col gap-1">
+<span class="text-[#555] text-[10px] font-bold tracking-wider uppercase">Exec-ID</span>
+<span class="text-white font-mono text-sm tracking-wide">8X92-LZ</span>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<span class="text-[#555] text-[10px] font-bold tracking-wider uppercase">Origin</span>
+<span class="text-white font-mono text-sm tracking-wide">NODE_04</span>
+</div>
+</div>
+<!-- Row 2: Hash Check -->
+<div class="p-4 flex flex-col gap-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-[#555] text-[10px] font-bold tracking-wider uppercase">Hash Verification</span>
+<span class="material-symbols-outlined text-primary text-xs">verified</span>
+</div>
+<span class="text-white font-mono text-xs tracking-wide break-all opacity-80">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+</div>
+<!-- Row 3: Timestamp -->
+<div class="p-4 flex flex-col gap-1 bg-background-dark">
+<span class="text-[#555] text-[10px] font-bold tracking-wider uppercase">Final Timestamp (UTC)</span>
+<span class="text-white font-mono text-lg tracking-wide">2023-10-27_14:02:55Z</span>
+</div>
+</div>
+<!-- Barcode Decoration (Visual Only) -->
+<div class="h-16 w-full bg-white p-2 flex items-center justify-center overflow-hidden relative">
+<div class="w-full h-full bg-[url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=SnapTaskReceipt')] bg-contain bg-no-repeat bg-center opacity-80 grayscale mix-blend-multiply" data-alt="Abstract QR code representing receipt verification"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white w-full h-full"></div>
+<div class="absolute bottom-1 right-2 text-[8px] text-black font-mono">VER: 4.0</div>
+</div>
+</div>
+</main>
+<!-- Footer Action -->
+<footer class="p-6 bg-background-dark border-t-2 border-border-industrial shrink-0 pb-10">
+<button class="w-full group relative flex items-center justify-center h-16 bg-primary hover:bg-opacity-90 active:translate-y-[2px] transition-all duration-75 border-none outline-none overflow-hidden">
+<!-- Button Scanline effect -->
+<div class="absolute inset-0 scan-line opacity-20 pointer-events-none"></div>
+<div class="flex items-center gap-3 relative z-10">
+<span class="material-symbols-outlined text-white">download</span>
+<span class="text-white font-bold tracking-[0.15em] text-lg uppercase">[ DOWNLOAD RECEIPT ]</span>
+</div>
+<!-- Corner decoration for button -->
+<div class="absolute top-0 right-0 w-0 h-0 border-t-[12px] border-r-[12px] border-t-white/30 border-r-transparent"></div>
+</button>
+<div class="mt-4 flex justify-between items-center px-1">
+<span class="text-[#333] text-[10px] uppercase tracking-widest">Read Only Mode</span>
+<span class="text-[#333] text-[10px] uppercase tracking-widest">Encrypted // SHA-256</span>
+</div>
+</footer>
+</body></html>

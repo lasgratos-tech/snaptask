@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transaction Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-hidden h-screen flex flex-col">
+<!-- Header -->
+<header class="shrink-0 flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark z-10">
+<button class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-2 -ml-2 rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 font-mono">SnapTask // checkout</span>
+<h1 class="text-sm font-bold tracking-wide text-gray-900 dark:text-white uppercase">Confirmation</h1>
+</div>
+<button class="text-gray-500 dark:text-gray-400 opacity-0 pointer-events-none p-2 -mr-2">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+<!-- Status Bar -->
+<div class="shrink-0 bg-gray-200/50 dark:bg-gray-800/30 py-2 px-4 flex justify-center items-center gap-2 border-b border-gray-200 dark:border-gray-800">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<p class="text-primary text-[10px] font-mono tracking-widest font-bold">STATUS: AWAITING_SIGNATURE</p>
+</div>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto no-scrollbar p-4 md:p-6 space-y-6">
+<!-- Contract Block -->
+<section class="bg-white dark:bg-[#151b26] rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+<div class="bg-gray-50 dark:bg-[#1a202c] px-4 py-2 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
+<h3 class="text-[10px] font-mono uppercase tracking-widest text-gray-500 dark:text-gray-400">Task Manifest</h3>
+<span class="material-symbols-outlined text-[16px] text-gray-400">description</span>
+</div>
+<div class="p-4 grid grid-cols-[30%_1fr] gap-y-4 gap-x-4">
+<div class="col-span-2 grid grid-cols-subgrid items-center">
+<p class="text-gray-500 dark:text-gray-500 text-xs font-semibold tracking-wider uppercase">Task ID</p>
+<p class="text-gray-900 dark:text-white text-sm font-mono text-right">#TSK-9942</p>
+</div>
+<div class="col-span-2 h-px bg-gray-100 dark:bg-gray-800"></div>
+<div class="col-span-2 grid grid-cols-subgrid items-start">
+<p class="text-gray-500 dark:text-gray-500 text-xs font-semibold tracking-wider uppercase pt-1">Protocol</p>
+<div class="text-right">
+<p class="text-gray-900 dark:text-white text-sm font-medium">Data Scraping - Level 4</p>
+<p class="text-gray-400 text-xs mt-0.5">Automated Retrieval</p>
+</div>
+</div>
+<div class="col-span-2 h-px bg-gray-100 dark:bg-gray-800"></div>
+<div class="col-span-2 grid grid-cols-subgrid items-start">
+<p class="text-gray-500 dark:text-gray-500 text-xs font-semibold tracking-wider uppercase pt-1">Target</p>
+<div class="text-right break-all">
+<p class="text-primary text-sm font-mono bg-primary/10 dark:bg-primary/5 inline-block px-2 py-0.5 rounded text-[11px] md:text-sm">192.168.0.1/api/v1</p>
+</div>
+</div>
+<div class="col-span-2 h-px bg-gray-100 dark:bg-gray-800"></div>
+<div class="col-span-2 grid grid-cols-subgrid items-center">
+<p class="text-gray-500 dark:text-gray-500 text-xs font-semibold tracking-wider uppercase">Params</p>
+<p class="text-gray-900 dark:text-white text-sm font-medium text-right">CPU: High, 400ms</p>
+</div>
+</div>
+</section>
+<!-- Cost Breakdown -->
+<section class="bg-white dark:bg-[#151b26] rounded-lg shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+<div class="bg-gray-50 dark:bg-[#1a202c] px-4 py-2 border-b border-gray-200 dark:border-gray-800 flex justify-between items-center">
+<h3 class="text-[10px] font-mono uppercase tracking-widest text-gray-500 dark:text-gray-400">Cost Allocation</h3>
+<span class="material-symbols-outlined text-[16px] text-gray-400">receipt_long</span>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-center">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Base Fee</p>
+<p class="text-gray-900 dark:text-white text-sm font-mono">$10.00</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Compute Cost</p>
+<p class="text-gray-900 dark:text-white text-sm font-mono">$30.00</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium">Network Fee</p>
+<p class="text-gray-900 dark:text-white text-sm font-mono">$2.50</p>
+</div>
+</div>
+<!-- Total Block -->
+<div class="border-t-2 border-dashed border-gray-200 dark:border-gray-700 p-4 bg-gray-50/50 dark:bg-[#1a202c]/30">
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<p class="text-xs font-bold tracking-widest text-gray-500 uppercase mb-1">Total Cost</p>
+<div class="flex items-center gap-1 text-primary/80">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span class="text-[10px] font-mono uppercase">Encryption Active</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-4xl font-bold text-gray-900 dark:text-white tracking-tighter">$42.50</p>
+<p class="text-[10px] text-gray-400 mt-1 uppercase tracking-wider">USD // Instant Settlement</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Spacer for button -->
+<div class="h-20"></div>
+</main>
+<!-- Floating/Sticky Action Button -->
+<div class="shrink-0 p-4 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 z-20 pb-8">
+<button class="w-full bg-primary hover:bg-primary/90 active:bg-primary/80 text-white font-medium rounded-md py-4 px-6 flex items-center justify-between group transition-all duration-200 shadow-lg shadow-primary/20">
+<span class="text-sm font-bold tracking-wide uppercase">Pay and Launch Execution</span>
+<div class="flex items-center gap-2">
+<span class="text-white/60 text-xs font-mono group-hover:text-white transition-colors">$42.50</span>
+<span class="material-symbols-outlined text-white group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+</div>
+</body></html>

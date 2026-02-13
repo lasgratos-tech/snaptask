@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Catalog Terminal</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#1c1f27",
+                        "border-dark": "#282e39",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for terminal feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #282e39;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #135bec;
+        }
+        
+        .terminal-text {
+            text-shadow: 0 0 2px rgba(19, 91, 236, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased overflow-x-hidden text-slate-900 dark:text-white selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex flex-col bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-border-dark">
+<div class="flex items-center h-16 justify-between px-4 sm:px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 28px;">terminal</span>
+<div>
+<h1 class="text-sm font-black tracking-widest text-slate-900 dark:text-white uppercase leading-none">Catalog_V1</h1>
+<p class="text-[10px] font-mono text-slate-500 dark:text-slate-400 tracking-wider mt-1">SNAPTASK_EXECUTION_LAYER</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-green-500/10 dark:bg-green-900/20 px-3 py-1 rounded-full border border-green-500/20">
+<div class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+<p class="text-green-700 dark:text-green-400 text-xs font-bold font-mono tracking-wider">SYSTEM:READY</p>
+</div>
+</div>
+<!-- Context Header -->
+<div class="px-4 pb-4 pt-2 sm:px-6">
+<p class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white uppercase terminal-text">Task_Catalog // Terminal_Access</p>
+</div>
+</header>
+<!-- Filters / Chips -->
+<div class="w-full border-b border-gray-200 dark:border-border-dark bg-background-light dark:bg-background-dark">
+<div class="flex gap-3 p-4 overflow-x-auto no-scrollbar items-center">
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap mr-2">FILTER:</span>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white pl-4 pr-4 border border-primary transition-all hover:shadow-[0_0_10px_rgba(19,91,236,0.5)]">
+<p class="text-xs font-bold tracking-wider">ALL_PROTOCOLS</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-card-dark hover:bg-gray-100 dark:hover:bg-border-dark text-slate-700 dark:text-slate-300 pl-4 pr-4 border border-gray-200 dark:border-border-dark transition-all">
+<p class="text-xs font-bold tracking-wider">DATA_MINING</p>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-card-dark hover:bg-gray-100 dark:hover:bg-border-dark text-slate-700 dark:text-slate-300 pl-4 pr-4 border border-gray-200 dark:border-border-dark transition-all">
+<p class="text-xs font-bold tracking-wider">AUTOMATION</p>
+</button>
+<div class="h-4 w-px bg-gray-300 dark:bg-border-dark mx-2"></div>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-transparent text-primary pl-0 pr-4">
+<span class="material-symbols-outlined text-sm">sort</span>
+<p class="text-xs font-bold tracking-wider">SORT: PRICE_ASC</p>
+</button>
+</div>
+</div>
+<!-- Main Content: Task Feed -->
+<main class="flex-1 flex flex-col gap-6 p-4 sm:p-6 max-w-3xl mx-auto w-full">
+<!-- Card 1 -->
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 rounded-lg bg-white dark:bg-card-dark shadow-sm border border-gray-200 dark:border-border-dark overflow-hidden hover:border-primary/50 transition-colors group">
+<!-- Data Section -->
+<div class="flex flex-1 flex-col p-5 gap-4 relative">
+<!-- ID Badge & Category -->
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 dark:bg-background-dark text-slate-500 dark:text-slate-400 border border-gray-200 dark:border-border-dark w-fit">
+                                #TSK-094
+                            </span>
+<span class="text-xs font-bold text-primary tracking-wider mt-1">[DATA_MINING]</span>
+</div>
+<div class="text-right">
+<p class="text-lg font-mono font-bold text-slate-900 dark:text-white">0.04 ETH</p>
+</div>
+</div>
+<!-- Title -->
+<div class="flex flex-col gap-1">
+<h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight uppercase group-hover:text-primary transition-colors">Data_Scrape_Protocol_V4</h2>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">output</span>
+<span>DELIVERABLE: CSV_EXPORT</span>
+</div>
+</div>
+<!-- Action Area (Desktop pushes to bottom, mobile stacks) -->
+<div class="mt-2 sm:mt-auto pt-4 border-t border-gray-100 dark:border-border-dark/50 flex justify-end">
+<button class="flex items-center justify-center h-10 px-6 bg-slate-900 dark:bg-primary text-white text-sm font-bold tracking-widest uppercase rounded hover:bg-slate-800 dark:hover:bg-blue-600 active:scale-95 transition-all shadow-lg shadow-primary/10">
+                            Execute
+                        </button>
+</div>
+</div>
+<!-- Visual/Image Section -->
+<div class="w-full sm:w-48 h-32 sm:h-auto bg-slate-100 dark:bg-background-dark border-t sm:border-t-0 sm:border-l border-gray-200 dark:border-border-dark relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 sm:hidden"></div>
+<div class="absolute top-2 right-2 z-20 bg-black/50 backdrop-blur px-2 py-1 rounded text-[10px] font-mono text-white sm:hidden">PREVIEW</div>
+<div class="w-full h-full bg-cover bg-center opacity-80 mix-blend-overlay dark:mix-blend-normal" data-alt="Abstract blue digital data streams visualized as lines" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbh_YmbrMgDHpe33HV7SgXNK1M9ZClI6DcUr2-Vr-RVwsvD0ZuAeiV25Nw9eG6V4xGvf3ENlqs6JttUGtRdaRBzBEnsv9EtqOerJpTJvmnf5zFV7q9Vb329AEwogBsiJG06sTOSzs6jPeW26xvCaEXzVnL23AMIFKi6mUjqKpdGTuC3NjBcYO-krh8fwqSPTq-NebL3IFacwe7PQEx5iJtODOQxp8P8cCqMGmB6siESrTqbS6gBrLj3dL0xWrkLXP3HAKwZCG-fQ");'></div>
+<!-- Overlay Grid -->
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-0 pointer-events-none"></div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 rounded-lg bg-white dark:bg-card-dark shadow-sm border border-gray-200 dark:border-border-dark overflow-hidden hover:border-primary/50 transition-colors group">
+<div class="flex flex-1 flex-col p-5 gap-4 relative">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 dark:bg-background-dark text-slate-500 dark:text-slate-400 border border-gray-200 dark:border-border-dark w-fit">
+                                #TSK-102
+                            </span>
+<span class="text-xs font-bold text-primary tracking-wider mt-1">[MEDIA_OPS]</span>
+</div>
+<div class="text-right">
+<p class="text-lg font-mono font-bold text-slate-900 dark:text-white">0.12 ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight uppercase group-hover:text-primary transition-colors">Image_Process_Batch_09</h2>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">folder_zip</span>
+<span>DELIVERABLE: ZIP_ARCHIVE</span>
+</div>
+</div>
+<div class="mt-2 sm:mt-auto pt-4 border-t border-gray-100 dark:border-border-dark/50 flex justify-end">
+<button class="flex items-center justify-center h-10 px-6 bg-slate-900 dark:bg-primary text-white text-sm font-bold tracking-widest uppercase rounded hover:bg-slate-800 dark:hover:bg-blue-600 active:scale-95 transition-all shadow-lg shadow-primary/10">
+                            Execute
+                        </button>
+</div>
+</div>
+<div class="w-full sm:w-48 h-32 sm:h-auto bg-slate-100 dark:bg-background-dark border-t sm:border-t-0 sm:border-l border-gray-200 dark:border-border-dark relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 sm:hidden"></div>
+<div class="w-full h-full bg-cover bg-center opacity-80 mix-blend-overlay dark:mix-blend-normal" data-alt="Technical wireframe of 3D shapes being processed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfuJXA8cjc9RXDzxK1FI-_EyfOOVkdnHsqBWHvxuhPGD9ms4Ew5OWHGpLx0DTQ_kOkg6x43eyP9kdHhM4Pg6t1OEskKrdYZu-VEbHIB_2l28ciImu_iYtt9MgiFQ_bAb-ZCCM-6JPeBc2hATewpUeelexmkXS5kTh3vT3J8lSrTVpwfMo7hS7URxt7Bv9vAcDr75_8MVzbIVzQCygQwxNqTmwCdXFt-bmKe2c7TX8-X5dPgEnFGcV30qgpFROJCU7tUZl683B5ww");'></div>
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-0 pointer-events-none"></div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 rounded-lg bg-white dark:bg-card-dark shadow-sm border border-gray-200 dark:border-border-dark overflow-hidden hover:border-primary/50 transition-colors group">
+<div class="flex flex-1 flex-col p-5 gap-4 relative">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-100 dark:bg-background-dark text-slate-500 dark:text-slate-400 border border-gray-200 dark:border-border-dark w-fit">
+                                #TSK-255
+                            </span>
+<span class="text-xs font-bold text-primary tracking-wider mt-1">[NLP_CORE]</span>
+</div>
+<div class="text-right">
+<p class="text-lg font-mono font-bold text-slate-900 dark:text-white">0.08 ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight uppercase group-hover:text-primary transition-colors">Text_Translation_Unit</h2>
+<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">data_object</span>
+<span>DELIVERABLE: JSON_OBJECT</span>
+</div>
+</div>
+<div class="mt-2 sm:mt-auto pt-4 border-t border-gray-100 dark:border-border-dark/50 flex justify-end">
+<button class="flex items-center justify-center h-10 px-6 bg-slate-900 dark:bg-primary text-white text-sm font-bold tracking-widest uppercase rounded hover:bg-slate-800 dark:hover:bg-blue-600 active:scale-95 transition-all shadow-lg shadow-primary/10">
+                            Execute
+                        </button>
+</div>
+</div>
+<div class="w-full sm:w-48 h-32 sm:h-auto bg-slate-100 dark:bg-background-dark border-t sm:border-t-0 sm:border-l border-gray-200 dark:border-border-dark relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 sm:hidden"></div>
+<div class="w-full h-full bg-cover bg-center opacity-80 mix-blend-overlay dark:mix-blend-normal" data-alt="Matrix style raining code characters green on black" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeHjmHHB3dPUy_Ye9H7041N4R0yxksyxkbhVIwiXIqvrQH5v9jEkJJB2ubaOlQEeQ8HXO4fMCr-gJKIitpU9ePvOej73KmtsoC6pZBW7xekGUjueFmDpFwBc6Hfb1KpjjaeuDv70yDbOE8YJ1yiajyDszTxwhiEXyMXxbWBOR0LDf1CN1XHstL3aWpPuKqw_QjvbUBQqLXp_0ccSMFENOmRvX4arJcwtRVfAh2fZhyQYwJf1oBdtHTQgH_7cTKvuXdm_r7EuHKdA");'></div>
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-0 pointer-events-none"></div>
+</div>
+</article>
+<!-- Card 4 (Disabled/Offline State Example) -->
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 rounded-lg bg-gray-100 dark:bg-[#15181e] border border-gray-200 dark:border-border-dark opacity-60">
+<div class="flex flex-1 flex-col p-5 gap-4 relative">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-gray-200 dark:bg-background-dark text-slate-500 border border-gray-300 dark:border-border-dark w-fit">
+                                #TSK-999
+                            </span>
+<span class="text-xs font-bold text-slate-500 tracking-wider mt-1">[OFFLINE]</span>
+</div>
+<div class="text-right">
+<p class="text-lg font-mono font-bold text-slate-400">--.-- ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="text-xl sm:text-2xl font-black text-slate-500 leading-tight uppercase line-through decoration-2">Deep_Learn_Model_X</h2>
+<div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+<span class="material-symbols-outlined text-[14px]">block</span>
+<span>STATUS: UNAVAILABLE</span>
+</div>
+</div>
+<div class="mt-2 sm:mt-auto pt-4 border-t border-gray-200 dark:border-border-dark/30 flex justify-end">
+<button class="cursor-not-allowed flex items-center justify-center h-10 px-6 bg-transparent border border-gray-300 dark:border-gray-700 text-gray-400 text-sm font-bold tracking-widest uppercase rounded" disabled="">
+                            LOCKED
+                        </button>
+</div>
+</div>
+</article>
+<!-- Footer Message -->
+<div class="flex items-center justify-center py-8 gap-2 opacity-50">
+<div class="h-px w-12 bg-slate-300 dark:bg-gray-700"></div>
+<p class="text-[10px] font-mono text-slate-500 dark:text-gray-500 tracking-[0.2em] uppercase">End of stream // No further entries</p>
+<div class="h-px w-12 bg-slate-300 dark:bg-gray-700"></div>
+</div>
+</main>
+<!-- Bottom Safe Area -->
+<div class="h-6 bg-background-light dark:bg-background-dark"></div>
+</div>
+</body></html>

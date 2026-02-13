@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+
+  "compilerOptions": {
+    /* =========================
+       TARGET & RUNTIME
+    ========================== */
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+
+    /* =========================
+       MODULE SYSTEM (Node 20)
+    ========================== */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    /* =========================
+       PATHS & ALIASES (CRITIQUE)
+    ========================== */
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+
+    /* =========================
+       PROJECT STRUCTURE
+    ========================== */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* =========================
+       TYPE SAFETY (STRICT)
+    ========================== */
+    "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* =========================
+       INTEROP & JSON
+    ========================== */
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    /* =========================
+       DEV EXPERIENCE
+    ========================== */
+    "sourceMap": true,
+    "skipLibCheck": true,
+
+    /* =========================
+       IMPORTANT POUR TSX / FASTIFY
+    ========================== */
+    "verbatimModuleSyntax": false
+  },
+
+  "include": ["src"],
+
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/auth/googleOAuth.ts",
+    "src/auth/oauthCallback.ts",
+    "src/infra/commandPersistence.ts",
+    "src/infra/eventStore.ts",
+    "tests",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}

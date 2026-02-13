@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Catalog Terminal V2</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#169c9c",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#112121",
+                        "terminal-border": "#2C3E3E", // Darker teal-grey for borders
+                        "terminal-surface": "#162626", // Slightly lighter than bg-dark
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Scanline effect */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.1)
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        
+        .blinking-cursor::after {
+            content: "█";
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+            color: #169c9c;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col relative">
+<!-- Scanline Overlay -->
+<div class="fixed inset-0 pointer-events-none z-50 opacity-10 scanlines mix-blend-overlay"></div>
+<!-- Top Status Bar -->
+<header class="sticky top-0 z-40 bg-background-dark border-b-2 border-primary/20 shadow-lg shadow-black/50">
+<!-- System Info Row -->
+<div class="flex justify-between items-center px-4 py-2 bg-black/20 text-[10px] tracking-widest text-primary/60 font-bold border-b border-white/5">
+<span>IOS_CLIENT_V2.4</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> NET: SECURE</span>
+</div>
+<!-- Terminal Prompt Row -->
+<div class="flex items-center px-4 py-3 justify-between">
+<h2 class="text-white text-base md:text-lg font-bold leading-tight tracking-[-0.015em] flex items-center gap-2">
+<span class="text-primary material-symbols-outlined text-lg">terminal</span>
+<span class="blinking-cursor">root@snaptask:~/catalog$</span>
+</h2>
+<button class="p-1 hover:bg-white/10 rounded">
+<span class="material-symbols-outlined text-gray-400">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 flex flex-col relative p-4 gap-4 pb-24">
+<!-- Section Header -->
+<div class="flex flex-col gap-1 mb-2">
+<h3 class="text-primary text-sm font-bold tracking-widest uppercase">// SYSTEM STATUS: READY</h3>
+<p class="text-gray-500 text-xs font-mono border-l-2 border-primary/30 pl-2">Loaded 4 modules. Execution mode: AUTOMATIC.</p>
+</div>
+<!-- Task List Items -->
+<!-- Item 1 -->
+<div class="group relative flex flex-col bg-terminal-surface border-2 border-terminal-border hover:border-primary transition-colors duration-200">
+<!-- Header Strip -->
+<div class="flex justify-between items-center bg-black/20 px-3 py-2 border-b-2 border-terminal-border">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">description</span>
+<span class="text-white font-bold tracking-tight">Task_Alpha</span>
+</div>
+<div class="text-xs font-mono text-gray-400">ID: #0A1</div>
+</div>
+<!-- Data Grid -->
+<div class="p-3 grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Category</span>
+<span class="text-gray-300 font-mono">Legal</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Type</span>
+<span class="text-primary font-mono font-bold">PDF</span>
+</div>
+<div class="flex flex-col col-span-2 pt-2 border-t border-white/5 mt-1">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Price</span>
+<span class="text-xl text-white font-bold">15.00 <span class="text-sm text-gray-500 font-normal">EUR</span></span>
+</div>
+</div>
+<!-- Action Area -->
+<div class="px-3 pb-3 pt-1">
+<button class="group/btn w-full relative overflow-hidden bg-transparent hover:bg-primary/10 border-2 border-primary text-primary transition-all active:bg-primary active:text-white h-10 flex items-center justify-between px-4">
+<span class="text-xs font-bold tracking-widest uppercase group-hover/btn:translate-x-1 transition-transform">Execute Protocol</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative flex flex-col bg-terminal-surface border-2 border-terminal-border hover:border-primary transition-colors duration-200">
+<div class="flex justify-between items-center bg-black/20 px-3 py-2 border-b-2 border-terminal-border">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">analytics</span>
+<span class="text-white font-bold tracking-tight">Task_Beta_02</span>
+</div>
+<div class="text-xs font-mono text-gray-400">ID: #0B7</div>
+</div>
+<div class="p-3 grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Category</span>
+<span class="text-gray-300 font-mono">Financial</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Type</span>
+<span class="text-primary font-mono font-bold">CSV</span>
+</div>
+<div class="flex flex-col col-span-2 pt-2 border-t border-white/5 mt-1">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Price</span>
+<span class="text-xl text-white font-bold">45.00 <span class="text-sm text-gray-500 font-normal">EUR</span></span>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1">
+<button class="group/btn w-full relative overflow-hidden bg-transparent hover:bg-primary/10 border-2 border-primary text-primary transition-all active:bg-primary active:text-white h-10 flex items-center justify-between px-4">
+<span class="text-xs font-bold tracking-widest uppercase group-hover/btn:translate-x-1 transition-transform">Execute Protocol</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group relative flex flex-col bg-terminal-surface border-2 border-terminal-border hover:border-primary transition-colors duration-200">
+<div class="flex justify-between items-center bg-black/20 px-3 py-2 border-b-2 border-terminal-border">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">verified_user</span>
+<span class="text-white font-bold tracking-tight">Task_Gamma_Audit</span>
+</div>
+<div class="text-xs font-mono text-gray-400">ID: #0C9</div>
+</div>
+<div class="p-3 grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Category</span>
+<span class="text-gray-300 font-mono">Compliance</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Type</span>
+<span class="text-primary font-mono font-bold">DOCX</span>
+</div>
+<div class="flex flex-col col-span-2 pt-2 border-t border-white/5 mt-1">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Price</span>
+<span class="text-xl text-white font-bold">120.00 <span class="text-sm text-gray-500 font-normal">EUR</span></span>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1">
+<button class="group/btn w-full relative overflow-hidden bg-transparent hover:bg-primary/10 border-2 border-primary text-primary transition-all active:bg-primary active:text-white h-10 flex items-center justify-between px-4">
+<span class="text-xs font-bold tracking-widest uppercase group-hover/btn:translate-x-1 transition-transform">Execute Protocol</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Item 4 (Generated) -->
+<div class="group relative flex flex-col bg-terminal-surface border-2 border-terminal-border hover:border-primary transition-colors duration-200">
+<div class="flex justify-between items-center bg-black/20 px-3 py-2 border-b-2 border-terminal-border">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">database</span>
+<span class="text-white font-bold tracking-tight">Task_Delta_Sync</span>
+</div>
+<div class="text-xs font-mono text-gray-400">ID: #0D4</div>
+</div>
+<div class="p-3 grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Category</span>
+<span class="text-gray-300 font-mono">Database</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Type</span>
+<span class="text-primary font-mono font-bold">SQL</span>
+</div>
+<div class="flex flex-col col-span-2 pt-2 border-t border-white/5 mt-1">
+<span class="text-[10px] uppercase text-gray-500 tracking-wider">Price</span>
+<span class="text-xl text-white font-bold">85.00 <span class="text-sm text-gray-500 font-normal">EUR</span></span>
+</div>
+</div>
+<div class="px-3 pb-3 pt-1">
+<button class="group/btn w-full relative overflow-hidden bg-transparent hover:bg-primary/10 border-2 border-primary text-primary transition-all active:bg-primary active:text-white h-10 flex items-center justify-between px-4">
+<span class="text-xs font-bold tracking-widest uppercase group-hover/btn:translate-x-1 transition-transform">Execute Protocol</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="text-center mt-4 mb-2">
+<p class="text-[10px] text-gray-600 font-mono">// END OF STREAM //</p>
+</div>
+</main>
+<!-- Sticky Footer -->
+<footer class="fixed bottom-0 w-full bg-background-dark border-t-2 border-primary/20 p-2 z-50">
+<div class="flex justify-between items-center text-xs font-mono">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span>ONLINE</span>
+</div>
+<div class="text-gray-500">
+                RECORDS: 42
+            </div>
+<div class="flex gap-2">
+<span class="px-1 bg-gray-800 text-gray-400 rounded text-[10px]">R</span>
+<span class="px-1 bg-gray-800 text-gray-400 rounded text-[10px]">W</span>
+<span class="px-1 bg-primary text-black font-bold rounded text-[10px]">X</span>
+</div>
+</div>
+</footer>
+</body></html>

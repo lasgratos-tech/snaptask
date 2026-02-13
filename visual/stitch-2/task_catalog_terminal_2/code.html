@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Task Catalog Terminal - Industrial Grey</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "industrial-black": "#0a0a0a",
+                        "industrial-dark": "#1a1a1a",
+                        "industrial-base": "#262626",
+                        "industrial-mid": "#404040",
+                        "industrial-light": "#737373",
+                        "industrial-text": "#d4d4d4",
+                        "industrial-white": "#f5f5f5",
+                        "accent-grey": "#525252",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #404040;
+            border-radius: 0px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #737373;
+        }
+        .sharp-border {
+            border-radius: 0 !important;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-industrial-black font-display antialiased overflow-x-hidden text-industrial-text selection:bg-industrial-white selection:text-industrial-black">
+<div class="relative flex min-h-screen w-full flex-col group/design-root">
+<header class="sticky top-0 z-50 flex flex-col bg-industrial-dark border-b border-industrial-mid">
+<div class="flex items-center h-14 justify-between px-4 sm:px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-industrial-white" style="font-size: 24px;">terminal</span>
+<div>
+<h1 class="text-sm font-bold tracking-widest text-industrial-white uppercase leading-none font-mono">Catalog_V1</h1>
+<p class="text-[9px] font-mono text-industrial-light tracking-widest mt-1">SNAPTASK_EXEC_LAYER</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-industrial-base px-3 py-1 border border-industrial-mid">
+<div class="h-1.5 w-1.5 bg-industrial-white"></div>
+<p class="text-industrial-white text-[10px] font-bold font-mono tracking-widest">SYSTEM:READY</p>
+</div>
+</div>
+<div class="px-4 pb-3 pt-2 sm:px-6 bg-industrial-black border-b border-industrial-base">
+<p class="text-xl sm:text-2xl font-bold tracking-tighter text-industrial-white uppercase font-mono">Task_Catalog <span class="text-industrial-mid">//</span> Terminal_Access</p>
+</div>
+</header>
+<div class="w-full border-b border-industrial-base bg-industrial-black">
+<div class="flex gap-2 p-3 overflow-x-auto no-scrollbar items-center">
+<span class="text-[10px] font-bold font-mono text-industrial-light whitespace-nowrap mr-2">FILTER:</span>
+<button class="flex h-7 shrink-0 items-center justify-center rounded-none bg-industrial-white text-industrial-black px-4 border border-industrial-white transition-all hover:bg-industrial-light hover:border-industrial-light">
+<p class="text-[10px] font-bold tracking-widest font-mono uppercase">ALL_PROTOCOLS</p>
+</button>
+<button class="flex h-7 shrink-0 items-center justify-center rounded-none bg-industrial-base hover:bg-industrial-mid text-industrial-text px-4 border border-industrial-mid transition-all">
+<p class="text-[10px] font-bold tracking-widest font-mono uppercase">DATA_MINING</p>
+</button>
+<button class="flex h-7 shrink-0 items-center justify-center rounded-none bg-industrial-base hover:bg-industrial-mid text-industrial-text px-4 border border-industrial-mid transition-all">
+<p class="text-[10px] font-bold tracking-widest font-mono uppercase">AUTOMATION</p>
+</button>
+<div class="h-4 w-px bg-industrial-mid mx-2"></div>
+<button class="flex h-7 shrink-0 items-center justify-center gap-x-1 rounded-none bg-transparent text-industrial-white pl-0 pr-4">
+<span class="material-symbols-outlined text-xs">sort</span>
+<p class="text-[10px] font-bold tracking-widest font-mono uppercase">SORT: PRICE_ASC</p>
+</button>
+</div>
+</div>
+<main class="flex-1 flex flex-col gap-4 p-4 sm:p-6 max-w-3xl mx-auto w-full bg-industrial-black">
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 bg-industrial-dark border border-industrial-base hover:border-industrial-white transition-colors group">
+<div class="flex flex-1 flex-col p-4 gap-3 relative">
+<div class="flex justify-between items-start border-b border-industrial-base pb-3">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-medium bg-industrial-base text-industrial-light w-fit">
+                                #TSK-094
+                            </span>
+<span class="text-[10px] font-bold font-mono text-industrial-white tracking-widest mt-1">[DATA_MINING]</span>
+</div>
+<div class="text-right">
+<p class="text-base font-mono font-bold text-industrial-white">0.04 ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 pt-2">
+<h2 class="text-lg font-bold text-industrial-white leading-tight uppercase tracking-tight group-hover:underline decoration-1 underline-offset-4">Data_Scrape_Protocol_V4</h2>
+<div class="flex items-center gap-2 text-industrial-light text-[10px] font-mono uppercase mt-1">
+<span class="material-symbols-outlined text-[12px]">output</span>
+<span>DELIVERABLE: CSV_EXPORT</span>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="flex items-center justify-center h-9 px-5 bg-industrial-mid text-industrial-white text-xs font-bold tracking-widest font-mono uppercase border border-industrial-light hover:bg-industrial-white hover:text-industrial-black hover:border-industrial-white transition-all active:translate-y-px">
+                            Execute
+                        </button>
+</div>
+</div>
+<div class="w-full sm:w-40 h-28 sm:h-auto bg-industrial-base border-t sm:border-t-0 sm:border-l border-industrial-base relative overflow-hidden grayscale contrast-125">
+<div class="w-full h-full bg-cover bg-center opacity-60 mix-blend-luminosity" data-alt="Abstract blue digital data streams visualized as lines" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbh_YmbrMgDHpe33HV7SgXNK1M9ZClI6DcUr2-Vr-RVwsvD0ZuAeiV25Nw9eG6V4xGvf3ENlqs6JttUGtRdaRBzBEnsv9EtqOerJpTJvmnf5zFV7q9Vb329AEwogBsiJG06sTOSzs6jPeW26xvCaEXzVnL23AMIFKi6mUjqKpdGTuC3NjBcYO-krh8fwqSPTq-NebL3IFacwe7PQEx5iJtODOQxp8P8cCqMGmB6siESrTqbS6gBrLj3dL0xWrkLXP3HAKwZCG-fQ");'></div>
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-0 pointer-events-none opacity-30"></div>
+</div>
+</article>
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 bg-industrial-dark border border-industrial-base hover:border-industrial-white transition-colors group">
+<div class="flex flex-1 flex-col p-4 gap-3 relative">
+<div class="flex justify-between items-start border-b border-industrial-base pb-3">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-medium bg-industrial-base text-industrial-light w-fit">
+                                #TSK-102
+                            </span>
+<span class="text-[10px] font-bold font-mono text-industrial-white tracking-widest mt-1">[MEDIA_OPS]</span>
+</div>
+<div class="text-right">
+<p class="text-base font-mono font-bold text-industrial-white">0.12 ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 pt-2">
+<h2 class="text-lg font-bold text-industrial-white leading-tight uppercase tracking-tight group-hover:underline decoration-1 underline-offset-4">Image_Process_Batch_09</h2>
+<div class="flex items-center gap-2 text-industrial-light text-[10px] font-mono uppercase mt-1">
+<span class="material-symbols-outlined text-[12px]">folder_zip</span>
+<span>DELIVERABLE: ZIP_ARCHIVE</span>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="flex items-center justify-center h-9 px-5 bg-industrial-mid text-industrial-white text-xs font-bold tracking-widest font-mono uppercase border border-industrial-light hover:bg-industrial-white hover:text-industrial-black hover:border-industrial-white transition-all active:translate-y-px">
+                            Execute
+                        </button>
+</div>
+</div>
+<div class="w-full sm:w-40 h-28 sm:h-auto bg-industrial-base border-t sm:border-t-0 sm:border-l border-industrial-base relative overflow-hidden grayscale contrast-125">
+<div class="w-full h-full bg-cover bg-center opacity-60 mix-blend-luminosity" data-alt="Technical wireframe of 3D shapes being processed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfuJXA8cjc9RXDzxK1FI-_EyfOOVkdnHsqBWHvxuhPGD9ms4Ew5OWHGpLx0DTQ_kOkg6x43eyP9kdHhM4Pg6t1OEskKrdYZu-VEbHIB_2l28ciImu_iYtt9MgiFQ_bAb-ZCCM-6JPeBc2hATewpUeelexmkXS5kTh3vT3J8lSrTVpwfMo7hS7URxt7Bv9vAcDr75_8MVzbIVzQCygQwxNqTmwCdXFt-bmKe2c7TX8-X5dPgEnFGcV30qgpFROJCU7tUZl683B5ww");'></div>
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-0 pointer-events-none opacity-30"></div>
+</div>
+</article>
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 bg-industrial-dark border border-industrial-base hover:border-industrial-white transition-colors group">
+<div class="flex flex-1 flex-col p-4 gap-3 relative">
+<div class="flex justify-between items-start border-b border-industrial-base pb-3">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-medium bg-industrial-base text-industrial-light w-fit">
+                                #TSK-255
+                            </span>
+<span class="text-[10px] font-bold font-mono text-industrial-white tracking-widest mt-1">[NLP_CORE]</span>
+</div>
+<div class="text-right">
+<p class="text-base font-mono font-bold text-industrial-white">0.08 ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 pt-2">
+<h2 class="text-lg font-bold text-industrial-white leading-tight uppercase tracking-tight group-hover:underline decoration-1 underline-offset-4">Text_Translation_Unit</h2>
+<div class="flex items-center gap-2 text-industrial-light text-[10px] font-mono uppercase mt-1">
+<span class="material-symbols-outlined text-[12px]">data_object</span>
+<span>DELIVERABLE: JSON_OBJECT</span>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="flex items-center justify-center h-9 px-5 bg-industrial-mid text-industrial-white text-xs font-bold tracking-widest font-mono uppercase border border-industrial-light hover:bg-industrial-white hover:text-industrial-black hover:border-industrial-white transition-all active:translate-y-px">
+                            Execute
+                        </button>
+</div>
+</div>
+<div class="w-full sm:w-40 h-28 sm:h-auto bg-industrial-base border-t sm:border-t-0 sm:border-l border-industrial-base relative overflow-hidden grayscale contrast-125">
+<div class="w-full h-full bg-cover bg-center opacity-60 mix-blend-luminosity" data-alt="Matrix style raining code characters green on black" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeHjmHHB3dPUy_Ye9H7041N4R0yxksyxkbhVIwiXIqvrQH5v9jEkJJB2ubaOlQEeQ8HXO4fMCr-gJKIitpU9ePvOej73KmtsoC6pZBW7xekGUjueFmDpFwBc6Hfb1KpjjaeuDv70yDbOE8YJ1yiajyDszTxwhiEXyMXxbWBOR0LDf1CN1XHstL3aWpPuKqw_QjvbUBQqLXp_0ccSMFENOmRvX4arJcwtRVfAh2fZhyQYwJf1oBdtHTQgH_7cTKvuXdm_r7EuHKdA");'></div>
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-0 pointer-events-none opacity-30"></div>
+</div>
+</article>
+<article class="flex flex-col sm:flex-row items-stretch justify-between gap-0 bg-[#121212] border border-industrial-base opacity-50 relative pointer-events-none">
+<div class="absolute inset-0 pointer-events-none z-10 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.02)_25%,rgba(255,255,255,0.02)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.02)_75%,rgba(255,255,255,0.02)_100%)] bg-[length:20px_20px]"></div>
+<div class="flex flex-1 flex-col p-4 gap-3 relative">
+<div class="flex justify-between items-start border-b border-industrial-base pb-3">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono font-medium bg-industrial-base text-industrial-light border border-industrial-mid w-fit">
+                                #TSK-999
+                            </span>
+<span class="text-[10px] font-bold text-industrial-light tracking-widest mt-1">[OFFLINE]</span>
+</div>
+<div class="text-right">
+<p class="text-base font-mono font-bold text-industrial-light">--.-- ETH</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 pt-2">
+<h2 class="text-lg font-bold text-industrial-light leading-tight uppercase line-through decoration-1">Deep_Learn_Model_X</h2>
+<div class="flex items-center gap-2 text-industrial-light text-[10px] font-mono">
+<span class="material-symbols-outlined text-[12px]">block</span>
+<span>STATUS: UNAVAILABLE</span>
+</div>
+</div>
+<div class="mt-4 flex justify-end">
+<button class="cursor-not-allowed flex items-center justify-center h-9 px-5 bg-transparent border border-industrial-base text-industrial-light text-xs font-bold tracking-widest uppercase font-mono" disabled="">
+                            LOCKED
+                        </button>
+</div>
+</div>
+</article>
+<div class="flex items-center justify-center py-8 gap-2 opacity-40">
+<div class="h-px w-16 bg-industrial-light"></div>
+<p class="text-[10px] font-mono text-industrial-light tracking-[0.2em] uppercase">End of stream // No further entries</p>
+<div class="h-px w-16 bg-industrial-light"></div>
+</div>
+</main>
+<div class="h-6 bg-industrial-black"></div>
+</div>
+
+</body></html>

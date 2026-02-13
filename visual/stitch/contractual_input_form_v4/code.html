@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contractual Input Form V4</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#16439c",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "surface-dark": "#1c1f26",
+                        "border-industrial": "#3d4452",
+                        "text-muted": "#9ea7b7",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-base text-white antialiased min-h-screen flex justify-center bg-gray-900">
+<!-- Mobile Container Simulation -->
+<div class="w-full max-w-[430px] bg-background-light dark:bg-background-dark min-h-screen flex flex-col relative shadow-2xl border-x-0 sm:border-x-2 border-border-industrial">
+<!-- Header Block -->
+<header class="flex items-center justify-between px-5 py-6 bg-background-light dark:bg-background-dark border-b-2 border-border-industrial">
+<div class="flex items-center justify-center size-10 border-2 border-border-industrial bg-surface-dark rounded text-white">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</div>
+<h1 class="text-sm font-bold tracking-[0.15em] text-white uppercase flex-1 text-center">SnapTask Terminal v4</h1>
+<div class="size-10"></div> <!-- Spacer for balance -->
+</header>
+<!-- Metadata Section (Grid) -->
+<section class="grid grid-cols-2 border-b-2 border-border-industrial bg-surface-dark/50">
+<div class="flex flex-col gap-1 p-4 border-r-2 border-border-industrial">
+<span class="text-text-muted text-xs font-bold tracking-widest uppercase">Task_ID</span>
+<span class="text-white text-sm font-medium font-mono tracking-wide">0x8F...3A</span>
+</div>
+<div class="flex flex-col gap-1 p-4">
+<span class="text-text-muted text-xs font-bold tracking-widest uppercase">Contract_Ref</span>
+<span class="text-white text-sm font-medium font-mono tracking-wide">UNI-V3-ALPHA</span>
+</div>
+</section>
+<!-- Content Body -->
+<div class="flex-1 flex flex-col p-5 gap-8 overflow-y-auto">
+<div class="flex flex-col gap-6">
+<h2 class="text-text-muted text-xs font-bold tracking-[0.2em] uppercase border-b border-border-industrial pb-2 w-full">Parameters</h2>
+<!-- Input Field: Text -->
+<label class="flex flex-col gap-3 group">
+<span class="text-white text-xs font-bold tracking-widest uppercase group-focus-within:text-primary transition-colors">Input_Data</span>
+<div class="relative">
+<input class="w-full bg-surface-dark border-2 border-border-industrial text-white placeholder-text-muted/50 text-sm font-mono p-4 rounded focus:outline-none focus:border-primary focus:ring-0 transition-colors uppercase" placeholder="ENTER HEX DATA..." type="text" value=""/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</div>
+</div>
+</label>
+<!-- Input Field: File Upload -->
+<label class="flex flex-col gap-3 group">
+<span class="text-white text-xs font-bold tracking-widest uppercase">Attachment</span>
+<div class="relative w-full h-16 bg-surface-dark border-2 border-dashed border-border-industrial hover:border-primary/50 transition-colors rounded cursor-pointer flex items-center justify-center gap-3 group-hover:bg-surface-dark/80">
+<span class="material-symbols-outlined text-text-muted text-[20px]">upload_file</span>
+<span class="text-text-muted text-xs font-bold tracking-widest uppercase group-hover:text-white">[UPLOAD_BINARY_BLOB]</span>
+<input class="opacity-0 absolute inset-0 cursor-pointer" type="file"/>
+</div>
+</label>
+<!-- Input Field: Select -->
+<label class="flex flex-col gap-3 group">
+<span class="text-white text-xs font-bold tracking-widest uppercase group-focus-within:text-primary transition-colors">Strategy</span>
+<div class="relative">
+<select class="w-full bg-surface-dark border-2 border-border-industrial text-white text-sm font-mono p-4 pr-10 rounded focus:outline-none focus:border-primary focus:ring-0 appearance-none uppercase cursor-pointer">
+<option value="IMMEDIATE">Immediate_Settlement</option>
+<option value="DEFERRED">Deferred_Batch_01</option>
+<option value="OPTIMISTIC">Optimistic_Rollup</option>
+</select>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted flex items-center">
+<span class="material-symbols-outlined text-[24px]">arrow_drop_down</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Additional Info / Warning -->
+<div class="mt-auto pt-6 border-t-2 border-border-industrial border-dashed opacity-60">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-text-muted text-[18px] mt-0.5">info</span>
+<p class="text-[10px] leading-relaxed text-text-muted font-mono uppercase tracking-wide">
+                        Warning: This action is irreversible. No gas estimation provided. Direct execution on contract 0x8F...3A.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<footer class="p-5 bg-background-light dark:bg-background-dark border-t-2 border-border-industrial z-10">
+<button class="w-full bg-primary hover:bg-blue-700 active:bg-blue-800 text-white h-14 rounded flex items-center justify-between px-6 transition-all group">
+<span class="text-sm font-bold tracking-widest uppercase">Pay &amp; Execute</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>
