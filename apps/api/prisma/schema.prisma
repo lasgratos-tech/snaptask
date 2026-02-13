@@ -12,12 +12,13 @@ datasource db {
 ///  * USERS
 ///  * =========================
 model User {
-  id        String         @id
-  owner     String         @unique
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
-  apiKeys   ApiKey[]
-  ledger    LedgerAccount?
+  id            String         @id
+  owner         String         @unique
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  apiKeys       ApiKey[]
+  ledger        LedgerAccount?
+  taskExecutions TaskExecution[]
 
   @@map("User")
 }
@@ -74,4 +75,25 @@ model LedgerEvent {
 enum LedgerEventType {
   CREDIT
   DEBIT
+}
+
+/// *
+///  * =========================
+///  * TASK EXECUTION
+///  * =========================
+model TaskExecution {
+  id              String   @id @default(uuid())
+  userOwner       String
+  taskCode        String
+  status          String
+  paymentIntentId String?  @unique
+  idempotencyKey  String   @unique
+  outputPath      String?
+  createdAt       DateTime @default(now())
+  executedAt      DateTime?
+
+  user User @relation(fields: [userOwner], references: [owner], onDelete: Cascade)
+
+  @@index([userOwner])
+  @@map("TaskExecution")
 }
